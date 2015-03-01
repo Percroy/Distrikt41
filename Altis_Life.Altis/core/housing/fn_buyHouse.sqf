@@ -43,7 +43,7 @@ if(_action) then {
 
 	// We want to remove the money before adding the house
 	D41_atmGeld = D41_atmGeld - (_houseCfg select 0);
-	[1] SOCK_fnc_updatePartial;
+	[1] call SOCK_fnc_updatePartial;
 	// Optional: Wait a short moment to prevent Alt+F4 before the updatePartial was completed
 	// sleep 0.5;
 

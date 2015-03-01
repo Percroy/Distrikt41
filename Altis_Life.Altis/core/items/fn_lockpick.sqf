@@ -11,7 +11,7 @@ life_interrupted = false;
 if(life_action_inUse) exitWith {};
 if(isNull _curTarget) exitWith {}; //Bad type
 _distance = ((boundingBox _curTarget select 1) select 0) + 2;
-if(!("D41_Dietrich" in (magazines player))exitWith{};
+if(!("D41_Dietrich" in (magazines player)))exitWith{};
 player removeMagazine "D41_Dietrich";
 if(player distance _curTarget > _distance) exitWith {hint "Biste Slenderman? Ich glaube nicht! Beweg dich näher ran!"; player addMagazine "D41_Dietrich";}; //Too far
 _isVehicle = if((_curTarget isKindOf "LandVehicle") OR (_curTarget isKindOf "Ship") OR (_curTarget isKindOf "Air")) then {true} else {false};

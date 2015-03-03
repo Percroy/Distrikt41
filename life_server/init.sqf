@@ -8,6 +8,7 @@ publicVariable "life_server_isReady";
 [] execVM "\life_server\functions.sqf";
 [] execVM "\life_server\eventhandlers.sqf";
 [] execVM "\life_server\Functions\D41\fn_D41_RandomBlitze.sqf";
+//[] execVM "\life_server\Functions\D41\fn_CleanupTest.sqf";
 
 //I am aiming to confuse people including myself, ignore the ui checks it's because I test locally.
 

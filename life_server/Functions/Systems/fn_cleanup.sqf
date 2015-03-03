@@ -66,6 +66,9 @@ diag_log "Cleanup.sqf gestartet";
 		{
 			deleteVehicle _x;
 		} foreach (allMissionObjects "GroundWeaponHolder");
+		{
+			deleteVehicle _x;
+		} foreach (allMissionObjects "Land_Money_F");
 		diag_log "Cleanup #2 ausgeführt";
 	};
 };

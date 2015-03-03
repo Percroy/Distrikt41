@@ -147,6 +147,7 @@ class CfgFunctions
 				class D41Lightning{};
 				class insertHouseGangKey{};
 				class BuyHouseCheck{};
+				//class CleanupTest{};
 			};
     };
 };

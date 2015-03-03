@@ -66,6 +66,7 @@ _return = [];
 		if(_HouseCheck2)then
 		{
 			_container = createVehicle[_className,_pos,[],0,"NONE"];
+			_container allowDamage false;
 			waitUntil{!isNil "_container"};
 			_container setPosATL _pos;
 			//_container enableSimulation false;

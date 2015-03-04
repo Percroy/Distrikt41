@@ -15,6 +15,26 @@ _query = format["SELECT pid, pos, containers FROM houses WHERE (pid='%1' OR gid=
 waitUntil{!DB_Async_Active};
 _houses = [_query,2,true] call DB_fnc_asyncCall;
 
+_DB_fnc_mresToArray = 
+{
+	private["_array"];
+	_array = [_this,0,"",[""]] call BIS_fnc_param;
+	if(_array == "") exitWith {[]};
+	_array = toArray(_array);
+
+	for "_i" from 0 to (count _array)-1 do
+	{
+		_sel = _array select _i;
+		if(_sel == 96) then
+		{
+			_array set[_i,39];
+		};
+	};
+
+	_array = toString(_array);
+	_array = call compile format["%1", _array];
+	_array;
+};
 
 _return = [];
 {
@@ -35,7 +55,7 @@ _return = [];
 		};
 	};
 
-	_containerData = [_x select 2] call DB_fnc_mresToArray;
+	_containerData = [_x select 2] call _DB_fnc_mresToArray;
 	if(typeName _containerData == "STRING") then {_containerData = call compile format["%1", _containerData];};
 	{
 		if(count _x == 0) exitWith {}; //No containers / items.

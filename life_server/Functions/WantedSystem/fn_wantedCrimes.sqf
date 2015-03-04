@@ -17,10 +17,31 @@ waitUntil{!DB_Async_Active};
 _tickTime = diag_tickTime;
 _queryResult = [_result,2] call DB_fnc_asyncCall;
 
+_DB_fnc_mresToArray = 
+{
+	private["_array"];
+	_array = [_this,0,"",[""]] call BIS_fnc_param;
+	if(_array == "") exitWith {[]};
+	_array = toArray(_array);
+
+	for "_i" from 0 to (count _array)-1 do
+	{
+		_sel = _array select _i;
+		if(_sel == 96) then
+		{
+			_array set[_i,39];
+		};
+	};
+
+	_array = toString(_array);
+	_array = call compile format["%1", _array];
+	_array;
+};
+
 _ret = owner _ret;
 _crimesArr = [];
 
-_crimesDB = [(_queryResult select 0)] call DB_fnc_mresToArray;
+_crimesDB = [(_queryResult select 0)] call _DB_fnc_mresToArray;
 if(typeName _crimesDb == "STRING") then {_crimesDb = call compile _crimesDb;};
 _queryResult set[0,_crimesDb];
 _type = _queryResult select 0;

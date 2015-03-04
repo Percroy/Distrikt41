@@ -27,9 +27,8 @@ _callerName = [_varValue,6,"",[""]] call bis_fnc_param;
 _callerUID = [_varValue,7,"",[""]] call bis_fnc_param;
 
 if(!(["life_fnc_",_functionName] call BIS_fnc_inString) && {!(["SPY_fnc_",_functionName] call BIS_fnc_inString)} && {!(["D41_fnc_",_functionName] call BIS_fnc_inString)} && {!(["DB_fnc_",_functionName] call BIS_fnc_inString)} && {!(["TON_fnc_",_functionName] call BIS_fnc_inString)} && 
-{!(toLower(_functionName) in ["bis_fnc_execvm","bis_fnc_effectkilledairdestruction","bis_fnc_effectkilledairdestructionstage2"])} && {!(["SOCK_fnc_",_functionName] call BIS_fnc_inString)}) exitWith {false};
-if(toLower(_functionName) == "db_fnc_asynccall") exitWith {false};
-if(toLower(_functionName) == "db_fnc_mresToArray") exitWith {false};
+{!(toLower(_functionName) in ["bis_fnc_execvm","bis_fnc_effectkilledairdestruction","bis_fnc_effectkilledairdestructionstage2","life_fnc_stripDownPlayer"])} && {!(["SOCK_fnc_",_functionName] call BIS_fnc_inString)}) exitWith {false};
+if(toLower(_functionName) in ["db_fnc_asynccall","db_fnc_mresstring","db_fnc_mresarray","db_fnc_mrestoarray"]) exitWith {false};
 
 if(_functionName == "bis_fnc_execvm") then {
 	_param2 = _params select 1;

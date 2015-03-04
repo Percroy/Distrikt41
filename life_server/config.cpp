@@ -45,7 +45,7 @@ class CfgFunctions
 			class asyncCall{};
 			class insertRequest{};
 			class updateRequest{};
-			class mresToArray {};
+			//class mresToArray {};
 			class insertVehicle {};
 			class bool{};
 			class mresString {};

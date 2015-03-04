@@ -15,6 +15,27 @@ _type = [_this,2,"",[""]] call BIS_fnc_param;
 _customBounty = [_this,3,-1,[0]] call BIS_fnc_param;
 if(_uid == "" OR _type == "" OR _name == "") exitWith {}; //Bad data passed.
 
+_DB_fnc_mresToArray = 
+{
+	private["_array"];
+	_array = [_this,0,"",[""]] call BIS_fnc_param;
+	if(_array == "") exitWith {[]};
+	_array = toArray(_array);
+
+	for "_i" from 0 to (count _array)-1 do
+	{
+		_sel = _array select _i;
+		if(_sel == 96) then
+		{
+			_array set[_i,39];
+		};
+	};
+
+	_array = toString(_array);
+	_array = call compile format["%1", _array];
+	_array;
+};
+
 //What is the crime?
 switch(_type) do
 {
@@ -77,7 +98,7 @@ _val = [(_type select 1)] call DB_fnc_numberSafe;
 
 if(count _queryResult != 0) then
 {
-	_pastCrimes = [(_queryResult select 1)] call DB_fnc_mresToArray;
+	_pastCrimes = [(_queryResult select 1)] call _DB_fnc_mresToArray;
 	_pastCrimes pushBack (_type select 0);
 	_pastCrimes = [_pastCrimes] call DB_fnc_mresArray;
 	_query = format["UPDATE wanted SET wantedCrimes = '%1', wantedBounty = wantedBounty + '%2', active = '1' WHERE wantedID='%3'",_pastCrimes,_val,_uid];

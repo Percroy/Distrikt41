@@ -53,8 +53,8 @@ _Btn2 ctrlSetText localize "STR_PM_Pushup";
 _Btn2 buttonSetAction "closeDialog 0; player playMove 'AmovPercMstpSnonWnonDnon_exercisePushup';";
 
 //Set Warning Shot Button
-//_Btn3 ctrlSetText localize "STR_PM_Warning_Shot";
-//_Btn3 buttonSetAction "closeDialog 0; player playMove 'Acts_starterPistol_fire';";
+_Btn3 ctrlSetText localize "STR_PM_Warning_Shot";
+_Btn3 buttonSetAction "closeDialog 0; player playMove 'Acts_starterPistol_fire';";
 _Btn3 ctrlEnable false;  //1.4 macht putt TODO
 
 //Set Close Button

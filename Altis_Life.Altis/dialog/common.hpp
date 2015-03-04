@@ -234,6 +234,9 @@ class Life_RscListNBox
 	autoScrollSpeed = -1;
 	autoScrollDelay = 5;
 	autoScrollRewind = 0;
+	colorPicture[] = {1,1,1,1};
+    colorPictureSelected[] = {1,1,1,1};
+    colorPictureDisabled[] = {1,1,1,1};
 	class ListScrollBar: Life_RscScrollBar{};
 	class ScrollBar: Life_RscScrollBar{};
 };

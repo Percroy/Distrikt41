@@ -222,9 +222,9 @@ for "_i" from 0 to count (_binConfigPatches)-1 do {
 private["_children","_allowedChildren"];
 _children = [configFile >> "RscDisplayMPInterrupt" >> "controls",0] call BIS_fnc_returnChildren;
 _allowedChildren = [
-"Title","MissionTitle","DifficultyTitle","PlayersName","ButtonCancel","ButtonSAVE","ButtonSkip","ButtonRespawn","ButtonOptions",
-"ButtonVideo","ButtonAudio","ButtonControls","ButtonGame","ButtonTutorialHints","ButtonAbort","DebugConsole","Feedback","MessageBox",
-"CBA_CREDITS_CONT_C","CBA_CREDITS_M_P"
+"Title", "MissionTitle", "PlayersName", "ButtonCancel", "ButtonSAVE", "ButtonSkip", "ButtonRespawn", "ButtonOptions",
+"ButtonVideo", "ButtonAudio", "ButtonControls", "ButtonGame", "ButtonTutorialHints", "ButtonAbort", "DebugConsole",
+"Version", "TraffLight", "Feedback", "MessageBox", "CBA_CREDITS_CONT_C","CBA_CREDITS_M_P"
 ];
 
 {

@@ -32,6 +32,7 @@ if(vehicle player != player) then
 
 if(isNil "_vehicle") exitWith {hint localize "STR_Garage_NoNPC"};
 if(isNull _vehicle) exitWith {};
+if((typeOf _vehicle) in ["D41_B_M1114_Armored","B_G_Offroad_01_armed_F","I_MRAP_03_F"])exitWith{hint localize "STR_Garage_Store_Armed"};
 [[_vehicle,false,(_this select 1)],"TON_fnc_vehicleStore",false,false] call life_fnc_MP;
 life_garage_store = true;
 _ropes = (_vehicle getvariable ["zlt_ropes", []]);

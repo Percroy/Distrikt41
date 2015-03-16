@@ -1,4 +1,4 @@
-﻿//::::::::::::  ::::::::::::\\
+//::::::::::::  ::::::::::::\\
 //	Filename: core/D41/fn_D41_KSys.sqf
 //	Author: Distrikt41 - Dscha
 //

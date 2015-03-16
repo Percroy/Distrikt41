@@ -15,7 +15,7 @@ _query = format["SELECT pid, pos, containers FROM houses WHERE (pid='%1' OR gid=
 waitUntil{!DB_Async_Active};
 _houses = [_query,2,true] call DB_fnc_asyncCall;
 
-_DB_fnc_mresToArray = 
+_DB_fnc_mresToArray =
 {
 	private["_array"];
 	_array = [_this,0,"",[""]] call BIS_fnc_param;
@@ -120,6 +120,7 @@ _return = [];
 				_container addBackpackCargoGlobal [_x,_backpackCount];
 			} foreach (_backpacks select 0);
 		};
+		sleep 0.25;
 	} foreach _containerData;
 	
 	if(_HouseCheck2)then

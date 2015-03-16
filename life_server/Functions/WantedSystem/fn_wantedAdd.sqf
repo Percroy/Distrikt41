@@ -15,7 +15,7 @@ _type = [_this,2,"",[""]] call BIS_fnc_param;
 _customBounty = [_this,3,-1,[0]] call BIS_fnc_param;
 if(_uid == "" OR _type == "" OR _name == "") exitWith {}; //Bad data passed.
 
-_DB_fnc_mresToArray = 
+_DB_fnc_mresToArray =
 {
 	private["_array"];
 	_array = [_this,0,"",[""]] call BIS_fnc_param;

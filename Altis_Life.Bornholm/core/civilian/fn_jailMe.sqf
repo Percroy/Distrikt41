@@ -12,10 +12,10 @@ _time = [_this,2,15,[0]] call BIS_fnc_param; //##80
 _time = time + (_time * 60); //x Minutes
 
 //if(_bad) then { _time = time + 1100; } else { _time = time + (15 * 60); }; //##80 (time loaded from DB)
-
 _esc = false;
 
 if(_time <= 0) then { _time = time + (15 * 60); hintC "Please Report to Admin: JAIL_FALLBACK_15, time is zero!"; };
+
 
 while {true} do
 {
@@ -30,7 +30,7 @@ while {true} do
 	
 	if((round(_time - time)) < 1) exitWith {hint ""};
 	if(!alive player && ((round(_time - time)) > 0)) exitWith {};
-	sleep 0.1;
+	sleep 1;
 };
 
 

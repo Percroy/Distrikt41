@@ -1,4 +1,4 @@
-﻿/*
+/*
 	File: fn_D41_GetRentDate.sqf
 	Author: Distrikt41 - Dscha
 

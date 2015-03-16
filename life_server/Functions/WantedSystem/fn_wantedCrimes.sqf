@@ -17,7 +17,7 @@ waitUntil{!DB_Async_Active};
 _tickTime = diag_tickTime;
 _queryResult = [_result,2] call DB_fnc_asyncCall;
 
-_DB_fnc_mresToArray = 
+_DB_fnc_mresToArray =
 {
 	private["_array"];
 	_array = [_this,0,"",[""]] call BIS_fnc_param;

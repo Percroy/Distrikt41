@@ -1057,6 +1057,11 @@
 			<Italian>Il veicolo è in affitto e non può essere depositato in garage.</Italian>
 			<Portuguese>Esse veículo é alugado e não pode ser armazenado na garagem.</Portuguese>
 		</Key>
+		<Key ID="STR_Garage_Store_Armed">
+			<Original>Armed of heavy armored Vehicles cannot be stored in your garage.</Original>
+			<English>Armed of heavy armored Vehicles cannot be stored in your garage.</English>
+			<German>Bewaffnete oder Schwere Fahrzeuge\nkönnen nicht in der Garage geparkt werden.</German>
+		</Key>
 		<Key ID="STR_Garage_Store_NoOwnership">
 			<Original>That vehicle doesn't belong to you therefor you cannot store it in your garage.</Original>
 			<English>That vehicle doesn't belong to you therefor you cannot store it in your garage.</English>
@@ -2206,6 +2211,21 @@
 			<French>Temps restant:</French>
 			<Italian>Tempo rimanente:</Italian>
 			<Portuguese>Tempo Restante:</Portuguese>
+		</Key>
+		<Key ID="STR_Jail">
+			<Original>Arrest</Original>
+			<English>Arrest</English>
+			<German>Inhaftieren</German>
+		</Key>
+		<Key ID="STR_Jail_Time_Range">
+			<Original>You can only go to jail between 5-60 minutes!</Original>
+			<English>You can only go to jail between 5-60 minutes!</English>
+			<German>Du kannst nur zwischen 5 und 60 Minuten in das Gefängnis</German>
+		</Key>
+		<Key ID="STR_Jail_Time_2">
+			<Original>Times in Minutes:</Original>
+			<English>Times in Minutes:</English>
+			<German>Zeit in Minuten:</German>
 		</Key>
 	</Package>
 	<Package name="Civ_Strings">
@@ -3902,6 +3922,11 @@
 			<French>Crochetage %1</French>
 			<Italian>Scassinando %1</Italian>
 			<Portuguese>Arrombando %1</Portuguese>
+		</Key>
+		<Key ID="STR_MISC_WrongTarget">
+			<Original>Invalid Target</Original>
+			<English>Invalid Target</English>
+			<German>Ungültiges Ziel</German>
 		</Key>
 		<Key ID="STR_ISTR_Lock_TooFar">
 			<Original>You got to far away from the target.</Original>

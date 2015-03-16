@@ -24,6 +24,8 @@ __CONST__(JJJJ_MMMM___EEEEEEE_LLYYSSTTIICCC_SHIT_RE,"No");
 __CONST__(JJJJ_MMMM___EEEEEEE_LLYYSSTTIICCC_SHIT_RE_OLD,"No");
 __CONST__(JJJJ_MMMM___EEEEEEE_SPAWN_VEH,"No");
 __CONST__(JJJJ_MMMM___EEEEEEE_SPAWN_WEAPON,"No");
+__CONST__(GGGG_EEEE_FFFF__PLAYERs,"nope");
+__CONST__(GGGG_EEEE_FFFF___DISPLAYID,"nope");
 
 //Make sure all functions were offloaded to the client..
 waitUntil {!isNil "SPY_fnc_menuCheck" && !isNil "SPY_fnc_variablecheck" && !isNil "SPY_fnc_cmdMenuCheck"};
@@ -80,7 +82,7 @@ if(_onUnload != "[""onUnload"",_this,""RscDisplayInventory"",'IGUI'] call compil
 	["SpyGlass",false,false] call BIS_fnc_endMission;
 };
 
-	
+
 //Launch our workers
 [] call SPY_fnc_menuCheck;
 [] spawn SPY_fnc_cmdMenuCheck;

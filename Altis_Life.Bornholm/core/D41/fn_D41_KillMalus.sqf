@@ -1,4 +1,4 @@
-﻿//::::::::::::  ::::::::::::\\
+//::::::::::::  ::::::::::::\\
 //	Filename: D41/fn_D41_KillMalus.sqf
 //	Author: Distrikt41 - Dscha
 //

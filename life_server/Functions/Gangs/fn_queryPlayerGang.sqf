@@ -10,7 +10,7 @@ _query = format["SELECT id, owner, name, maxmembers, bank, members FROM gangs WH
 waitUntil{!DB_Async_Active};
 _queryResult = [_query,2] call DB_fnc_asyncCall;
 
-_DB_fnc_mresToArray = 
+_DB_fnc_mresToArray =
 {
 	private["_array"];
 	_array = [_this,0,"",[""]] call BIS_fnc_param;

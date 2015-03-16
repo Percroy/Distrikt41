@@ -197,7 +197,6 @@ class Life_Client_Core
 		//D41 Gangs
 		class clothing_adac {};
 		class clothing_gangdmw {};
-		class clothing_gangpow {};
 		class clothing_gangfirma {};
 	};
 

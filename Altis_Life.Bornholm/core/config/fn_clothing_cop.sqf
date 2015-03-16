@@ -36,7 +36,7 @@ switch (_filter) do
 			_ret set[count _ret,["D41_swat_sniper_uniform",nil,1000]];
 			_ret set[count _ret,["TFA_ger_trop",nil,1000]];
 			_ret set[count _ret,["TFA_ger_trop_rs",nil,1000]];
-			_ret set[count _ret,["TFA_wood",nil,1000]];
+			_ret set[count _ret,["U_O_GhillieSuit",nil,3000]];
 		};
 		if(!license_cop_gangfirma && license_cop_air) then
 		{

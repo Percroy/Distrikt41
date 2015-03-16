@@ -18,7 +18,7 @@ _ownerID = [_this,2,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _ownerID) exitWith {};
 _ownerID = owner _ownerID;
 
-_DB_fnc_mresToArray = 
+_DB_fnc_mresToArray =
 {
 	private["_array"];
 	_array = [_this,0,"",[""]] call BIS_fnc_param;

@@ -21,7 +21,7 @@ for [{_x=0},{_x<=_count},{_x=_x+10}] do {
 	if(count _queryResult == 0) exitWith {};
 	{
 		_pos = call compile format["%1",_x select 2];
-		_house = nearestObject [_pos, "House"];
+		_house = nearestBuilding _pos;
 		_house setVariable["house_owner",[_x select 1,_x select 3],true];
 		_house setVariable["house_owned",true,true];
 		_house setVariable["house_id",_x select 0,true];
@@ -32,6 +32,6 @@ for [{_x=0},{_x<=_count},{_x=_x+10}] do {
 		};
 		diag_log format [":::: initHouses: # %1 --- _x = %2",_abc, _x];
 		_abc = _abc + 1;
-
+		sleep 0.2; 
 	} foreach _queryResult;
 };

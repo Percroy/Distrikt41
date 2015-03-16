@@ -3,7 +3,7 @@
 	Sets jail values for player
 
 */
-private["_player", "_playeruid", "_query", "_result", "_time"];
+private["_player", "_playeruid", "_query", "_time"];
 
 _player = _this select 0;
 _playeruid = _this select 1;

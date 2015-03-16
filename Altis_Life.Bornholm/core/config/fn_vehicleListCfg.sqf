@@ -44,7 +44,7 @@ switch (_shop) do
 	{
 		_return = [
 			["D41_medic_helicopter",4500],		//Littlebird Medic
-			["D41_ka60_medic",7500],			//Orca Medic
+			//["D41_ka60_medic",7500],			//Orca Medic
 			["D41_RHS_UH60M_MEV",8500] //UH60 Medic
 		];
 	};
@@ -231,7 +231,7 @@ switch (_shop) do
 			_return set[count _return,["civ_md500_sunset",175000]]; // Littlebird
 			_return set[count _return,["civ_md500_wasp",175000]]; // Littlebird
 			_return set[count _return,["civ_md500_wave",175000]]; // Littlebird
-			_return set[count _return,["O_Heli_Light_02_unarmed_F", 280000]]; // Orca Schwarz (einzige Auswahl in VehColorCfg)
+			//_return set[count _return,["O_Heli_Light_02_unarmed_F", 280000]]; // Orca Schwarz (einzige Auswahl in VehColorCfg)
 			_return set[count _return,["D41_GNT_C185",200000]]; // Cessna
 			_return set[count _return,["D41_sab_ca_An2",250000]]; // An-2 Oldie
 			_return set[count _return,["D41_Sab_yel_An2",250000]]; // An-2 Gelb

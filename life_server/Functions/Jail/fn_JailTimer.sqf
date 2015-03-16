@@ -5,7 +5,7 @@
 	III delete and return money value]
 
 */
-private["_player", "_playeruid", "_query", "_result", "_injail"];
+private["_player", "_playeruid", "_query", "_injail", "_queryResult"];
 
 _player = _this select 0;
 _playeruid = _this select 1;
@@ -23,9 +23,4 @@ waitUntil {!DB_Async_Active};
 ////II
 _query = format["SELECT IF( remainingtime <= '0', TRUE, FALSE ) FROM players WHERE playerid='%1'", _playeruid];
 waitUntil{!DB_Async_Active};
-_money_result = [_query,2] call DB_fnc_asyncCall;
-
-//SEND TO MISSION
-//Compile
-
-[ [_injail] ,"life_fnc_execJailTimer",_player,false] call life_fnc_MP; //send the string
+_queryResult = [_query,2] call DB_fnc_asyncCall;

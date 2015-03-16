@@ -12,4 +12,3 @@ if(!(_this select 0)) exitWith {}; //Not server
 setTimeMultiplier 12;
 [] execVM "\life_server\Functions\D41\fn_updateStock.sqf";
 [] execVM "\life_server\Functions\D41\PVPAreaMissions.sqf";
-//[8,true,true,12] execFSM "core\fsm\timeModule.fsm";

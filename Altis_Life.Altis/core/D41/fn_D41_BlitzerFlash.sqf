@@ -1,4 +1,4 @@
-﻿//::::::::::::  ::::::::::::\\
+//::::::::::::  ::::::::::::\\
 //	Filename: D41/fn_D41_BlitzerFlash.sqf
 //	Author: Distrikt41 - Dscha
 //

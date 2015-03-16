@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 	Shows cop arrest dlg
 

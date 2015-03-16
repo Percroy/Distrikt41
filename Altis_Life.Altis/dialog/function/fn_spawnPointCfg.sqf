@@ -31,7 +31,8 @@ switch (_side) do
 		
 		if(license_cop_gangfirma && playerSide == west) then {
 		_return = _return +[
-								["cop_spawn_5","Security","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+								["cop_spawn_5","Firma Security","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+								["cop_spawn_6","Firma AirHQ","\a3\ui_f\data\map\Markers\NATO\b_air.paa"]
 							];
 		};
 		

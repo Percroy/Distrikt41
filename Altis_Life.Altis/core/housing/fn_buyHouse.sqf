@@ -1,7 +1,7 @@
 #include <macro.h>
 /*
 	Author: Bryan "Tonic" Boardwine
-
+	
 	Description:
 	Buys the house?
 */
@@ -40,13 +40,9 @@ if(D41_atmGeld < (_houseCfg select 0)) exitWith {hint format [localize "STR_Hous
 
 if(_action) then {
 	if(D41_atmGeld < (_houseCfg select 0)) exitWith {hint format [localize "STR_House_NotEnough"]};
-
-	// We want to remove the money before adding the house
 	D41_atmGeld = D41_atmGeld - (_houseCfg select 0);
 	[1] call SOCK_fnc_updatePartial;
-	// Optional: Wait a short moment to prevent Alt+F4 before the updatePartial was completed
-	// sleep 0.5;
-
+	sleep 0.5;
 	[[_uid,_house],"TON_fnc_addHouse",false,false] call life_fnc_MP;
 	_house setVariable["house_owner",[_uid,profileName],true];
 	_house setVariable["house_soldCheck",false,true];

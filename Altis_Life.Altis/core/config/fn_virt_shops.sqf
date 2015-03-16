@@ -37,7 +37,7 @@ switch (_shop) do
 	//Grosshandel
 	case "metall": {_return = ["Metallgroßhandel",["D41_Eisen","D41_Kupfer"]]};
 	case "oil": {_return = ["Ölgroßhandel",["D41_Oel","D41_BenzinKanister"]]};
-	case "mineralien": {_return = ["Mineralien und Gesteine Großhandel",["D41_Kohle","D41_Kalkstein"]]};
+	case "mineralien": {_return = ["Mineralien und Gesteine Großhandel",["D41_Kohle","D41_Kalkstein","D41_Salz"]]};
 	case "baumaterial": {_return = ["Baumaterial Großhandel",["D41_Glas","D41_Ton","D41_Zement"]]};
 	
 	//Allgemeine Shops
@@ -122,7 +122,7 @@ switch (_shop) do
 		["Polizei Ausrüstung",
 					["D41_Kaffee","D41_EnergyDrink","D41_Donuts",
 					"D41_BombeWegMachtKit","D41_Nagelband","D41_Mauer","D41_Strahler","D41_Schranke","D41_Blitzer","D41_Dietrich",
-					"D41_BenzinKanister","ItemGPS","Rangefinder","ToolKit","FirstAidKit","ItemRadio","NVGoggles","NVGoggles_OPFOR"]
+					"D41_BenzinKanister","ItemGPS","Rangefinder","ToolKit","FirstAidKit","ItemRadio","pmc_earpiece"]
 					]};
 				};
 
@@ -495,27 +495,7 @@ switch (_shop) do
 					"optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","RH_peq2"]
 					]};
 				};
-	
-	//POW MIA
-	case "gangpow": {if((_shop == "gangpow") && license_civ_gangpow) then {_return = 
-		["PowMia Markt",
-					["D41_WaterBottle","D41_EnergyDrink","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_Hasenfleisch","D41_BeefJerky",
-					"D41_BenzinKanister","D41_Dietrich","D41_Bolzenschneider","D41_Sprengladung","D41_Kabelbinder",		
-					"Binocular","Rangefinder","ItemMap","ItemCompass","ItemWatch","ItemGPS","ItemRadio","ToolKit","FirstAidKit","NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","pmc_earpiece","TFAx_NVGoggles2"]
-					]};
-				};
-				
-	case "gangpow_waffen": {
-					if((_shop == "gangpow_waffen") && license_civ_gangpow) then {_return =
-		["PowMia Waffen",
-					["RH_uspm","RH_16Rnd_40cal_usp",
-					"hgun_Pistol_heavy_01_F","11Rnd_45ACP_Mag","RH_X2","RH_M6X","RH_X300",
-					"hlc_rifle_bcmjack","RH_M4sbr_g","30Rnd_556x45_Stanag_Tracer_Red",
-					"arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",
-					"rhsusf_acc_ACOG3","FHQ_optic_HWS_G33","FHQ_optic_ACOG","optic_Holosight","FHQ_optic_AC11704","FHQ_optic_AC12136","RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr",
-					"optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","RH_peq2"]
-					]};
-				};
+
 				
 	//MASTERLISTEN Waffen
 	case "leichtepistolen": {

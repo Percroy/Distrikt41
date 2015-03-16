@@ -7,7 +7,7 @@
 private ["_time"];
 
 if(playerSide != west) exitWith {};
-if(isNil "life_pInact_curTarget") exitWith {hint "Ungültiges Ziel."};
+if(isNil "life_pInact_curTarget") exitWith {hint localize "STR_MISC_WrongTarget"};
 
 //Get minutes
 _time = ctrlText 1400;
@@ -15,13 +15,13 @@ _time = ctrlText 1400;
 
 if(! ([_time] call TON_fnc_isnumber)) exitWith
 {
-	hint "Du hast eine Zahl eingegeben.";
+	hint localize "STR_Shop_Virt_NoNum";
 };
 
 _time = parseNumber _time; //requested number
 _time = round _time;
 
-if(_time < 5 || _time > 60) exitWith { hint "Du kannst nur zwischen 5 und 60 Minuten in das Gefängnis"; };
+if(_time < 5 || _time > 60) exitWith { hint localize "STR_Jail_Time_Range"; };
 
 
 closeDialog 0; 

@@ -30,7 +30,7 @@ class jail_time
 		class Title : Life_RscTitle {
 			colorBackground[] = {0, 0, 0, 0};
 			idc = 2651;
-			text = "Inhaftieren";
+			text = "$STR_Jail";
 			x = 0.3;
 			y = 0.2;
 			w = 0.6;
@@ -41,7 +41,7 @@ class jail_time
 		{
 			idc = 2601;
 			sizeEx = 0.020;
-			text = "Times in Minutes:";
+			text = "$STR_Jail_Time_2";
 			x = 0.287;
 			y = 0.2 + (11 / 250);
 			w = 0.45; 

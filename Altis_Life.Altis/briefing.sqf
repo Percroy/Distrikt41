@@ -93,7 +93,7 @@ player createDiarySubject ["controls","Steuerung"];
 				
 				Sonderregelungen: Rebellenangriffe, Belagerungen, Aufstände und Geiselnahmen<br/>
 				1. Alle Personen die sich am Ort des Geschehens aufhalten oder sich in die Handlung einmischen müssen damit rechnen getötet, oder gefangen genommen zu werden.<br/>
-				2. Sind nicht mindestens 5 Polizisten online, wird jegliche Belagerungen,Rebellenangriffe, Aufstände oder Geiselnahmen als Regelwidrig angesehen. Unterscheidet bitte zwischen Polizisten und der Firma die ein [DF] im Namen hat.<br/>
+				2. Sind nicht mindestens 5 Polizisten online, wird jegliche Belagerungen,Rebellenangriffe, Aufstände oder Geiselnahmen als Regelwidrig angesehen. Unterscheidet bitte zwischen Polizisten und der Firma die ein [A.S.A.] im Namen hat.<br/>
 				3. Vor einer Belagerung, Rebellenangriff bzw. Aufstand muss man der Polizei eine Liste mit teilnehmenden Spielern zukommen lassen.<br/>
 				4. Die Bank darf von Spielergruppen max. 2 x pro Serverzeit ausgeraubt werden. Hier spielt es keine Rolle wie die Gruppe heißt, sondern jeder Spieler darf maximal 2 x teilnehmen!<br/>
 				"
@@ -130,7 +130,7 @@ player createDiarySubject ["controls","Steuerung"];
 
 				Wenn du glaubst, dass du zu Unrecht gebannt wurdest, komm auf unseren Teamspeak und spreche einen Admin an.<br/>
 				Beachtet bitte, dass dieser Server, also unsere Map und Features, in einem Beta Stadium sind. Aus diesem Grund kann es immer wieder zu unerwarteten Spielsituationen oder auch zu Serverabstürzen kommen, welche von uns nicht beeinflusst werden können. In diesem Zusammenhang mit Bugs, Hackerangriffen etc. erstatten wir Gelder bzw. Fahrzeuge nur in Einzelfällen, die vorher von einem Admin genau geprüft wurden. Grundsätzliche Erstattungen von verlorenem Gut gibt es nicht.<br/>
-				Wir dulden keine Beleidigungen, Rechtsextremismus, Linksextremismus, Verurteilung aufgrund von Religion oder sexueller Orientierung. Dies gilt auch für Spielernamen.<br/><br/>
+				Wir dulden keine Beleidigungen, Rechtsextremismus, Linksextremismus, Verurteilung aufgrund von Religion oder sexueller Orientierung. Desweitern ist übertrieben gebrauch von Caps Lock und Shift nicht geduldet. Dies gilt auch für Spielernamen.<br/><br/>
 				
 				!!! UNWISSENHEIT SCHÜTZ NICHT VOR STRAFE !!!<br/><br/>
 				
@@ -153,7 +153,7 @@ player createDiarySubject ["controls","Steuerung"];
 				- Alle Sanitätsfahrzeuge<br/><br/>
 
 				Illegale Waffen<br/>
-				Jede Waffe und die dazugehörige Munition, die NICHT beim Waffenhändler erhältlich ist wird als illegal eingestuft. Für eine genaue Auflistung schaut bei uns im Forum vorbei.<br/><br/>
+				Jede Waffe und die dazugehörige Munition, die NICHT beim Waffenhändler oder Herotrader erhältlich ist wird als illegal eingestuft. Für eine genaue Auflistung schaut bei uns im Forum vorbei.<br/><br/>
 
 				Illegale Waren und Gegenstände<br/>
 				- Heroin ( auch Schlafmohn )<br/>
@@ -199,7 +199,7 @@ player createDiarySubject ["controls","Steuerung"];
 				1. Personen zu überfahren ist IMMER verboten, egal in welcher Situation, und wird mit einem Bann bestraft. (siehe VDM ). Im Falle eines Unfalls wird dies von der Polizei untersucht und im Unschuldsfall wird keine Strafe verhängt.<br/>
 				2. Absichtliches positionieren vor Autos um überfahren oder verletzt zu werden wird mit einem Bußgeld/Ban belegt.<br/>
 				3. Fremde leere Fahrzeuge zu zerstören ist verboten und wird mit Kick bzw. Ban bestraft.<br/>
-				4. Es gilt die StVO auf allen Straßen und Plätzen.Den Verkehrszeichen ist Folge zu leisten.
+				4. Es gilt die StVO auf allen Straßen und Plätzen.Den Verkehrszeichen ist Folge zu leisten.<br/>
 				5. Die Geschwindigkeiten in Spawn-Städten ist 30km/h, in anderen Städten 50km/h. Außerorts 100km/h für PKW`s und 80km/h für LKW`s.<br/>
 				6. Straßen sind da um bentuzt zu werden, solltet ihr Offroad erwischt werden wird dies mit einem Bußgeld geahndet.<br/>
 				7. Um Fahrzeuge im Game zu führen braucht ihr einen Führerschein. Das Fahren ohne den speziellen Führerschein wird mit Bußgeld bestraft.<br/>
@@ -223,8 +223,8 @@ player createDiarySubject ["controls","Steuerung"];
 				3. Wenn man nicht Teil eines Konflikts ist, hat man das Gebiet zu verlassen. Solltet ihr trotz dieser Info bei einem Feuergefecht getötet werden habt ihr keinen Anspruch auf Schadensersatz. Mischt ihr euch ein und tötet jemanden zählt dies als RDM.<br/>
 				4. Gangkriege müssen der Polizei mitgeteilt werden.
 				5. Jemanden durch Notwehr zu töten wird nicht geahndet. Dies muss nachweisbar sein. Wenn der Angreifer polizeilich bekannt ist, oder ihr dies anschließend der Polizei mitteilt und euch stellt werdet ihr nicht bestraft.<br/><br/>
-				6. Wird man in einer Role Play Aktion / Gefecht getötet, muss man 15 Minuten lang an dem Ort verweilen, an dem man gespawnt ist. Erst nach Ablauf der 15 Minuten darf man sich dem Spielgeschehen wieder nähern.<br/>
-				7. Polizisten dürfen sich nur am HQ aufhalten.<br/>
+				6. Wird man in einer Role Play Aktion / Gefecht getötet, muss man 15 Minuten lang an dem Ort verweilen, an dem man gespawnt ist. Erst nach Ablauf der 15 Minuten darf man sich dem Spielgeschehen wieder nähern. Es sollte klar sein das man nicht bei seinem Todesort wieder Spawnen darf.<br/>
+				7. Polizisten dürfen sich ihrem alten Einsatz bei dem Sie gestorben sind für die dauer der 15 Minuten Regel nicht anschließen. Sie dürfen aber an anderen Einsätzen agierten oder/und reguläre Streife fahren.<br/>
 				8. Zivilisten/Rebellen an ihrem Spawnpunkt.<br/>
 				Bei Missachtung dieser Regelung wird strikt geahnet: Verwarnung -> Kick -> Ban<br/><br/>
 				"
@@ -254,7 +254,8 @@ player createDiarySubject ["controls","Steuerung"];
 				"
 				1. In Städten darf generell nur mit Tazern geschossen werden, außer das eigene Leben ist unmittelbar bedroht. In diesem Fall darf auf tödliche Waffengewalt zurückgegriffen werden.<br/>
 				2. In Städten müssen tödliche Waffen geschultert getragen werden. Desweiteren dürfen Waffen nur dann im Anschlag getragen werden, wenn es die Situation erfordert. (Doppelt Strg drücken um die Waffen aus dem Anschlag runter zu nehmen.)<br/>
-				3. Um einen flüchtigen zu stoppen der versucht in einem Fahrzeug oder Hubschrauber zu fliehen, darf auf das Fahrzeug bzw. den Hubschrauber geschossen werden um ihn an der Flucht zu hindern. Primärziel Reifen/Rotor.<br/><br/>
+				3. Um einen flüchtigen zu stoppen der versucht in einem Fahrzeug oder Hubschrauber zu fliehen, darf auf das Fahrzeug bzw. den Hubschrauber geschossen werden um ihn an der Flucht zu hindern. Primärziel Reifen/Rotor.<br/>
+				4. Gestohlene Polizeifahrzeuge dürfen mit allen der Polizei verfügbaren Mitteln gestoppt und/oder außer Gefecht gesetzt werden!<br/><br/>
 				"
 		]
 	];
@@ -270,7 +271,8 @@ player createDiarySubject ["controls","Steuerung"];
 				5. Wenn man auf einer Verfolgung ist und an ein Rebellencamp kommt, muss Backup angefordert werden, sofern vorhanden.<br/>
 				6. Bußgelder werden nach der Fahndungsliste und dem Bußgeldkatalog berechnet (Situationsabhängig )<br/>
 				7. Alle Bußgelder oder Beutegelder müssen im Team geteilt werden um Streit über Gefangennahmen zu vermeiden. Geschieht dies nicht, wird eine Verwarnung erteilt.<br/>
-				8. Nach 2 Verwarnungen ist man vom Dienst suspendiert und kann erst nach einer gewissen Zeit einen Antrag auf Wiederaufnahme in die Polizei stellen.<br/><br/>
+				8. Nach 2 Verwarnungen ist man vom Dienst suspendiert und kann erst nach einer gewissen Zeit einen Antrag auf Wiederaufnahme in die Polizei stellen.<br/>
+				9. Personen, welche Polizei Equipment besitzen/führen, müssen mit verschärften Maßnahmen (z.B. sofortige Festnahme) rechnen.<br/><br/>
 				"
 		]
 	];
@@ -332,7 +334,8 @@ player createDiarySubject ["controls","Steuerung"];
 				2. Es darf maximal 1 Blackhawk aktiv sein. Dieser darf nur zur Zerstörung bewaffneter bzw gepanzerter Fahrzeuge eingesetzt werden oder um Hubschrauber und Flugzeuge zum Landen zu zwingen. Flüchtige Fahrzeuge können auch zum Stop gezwungen werden.<br/>
 				3. Es darf maximal 2 Tigr/HMMWV aktiv sein. Dieser darf nur in besonderen Fällen (Geiselnahme, Banküberfall, Großrazia, Event) eingesetzt werden.<br/>
 				4. Bei längerer Verfolgungsjagd (15min+) darf der Blackhawk eingesetzt werden.<br/>
-				5. Cal 50 HMMWVs und Blackhawks sind nicht für die Bekämpfung von Personen gedacht und werden für diesen zweck nicht eingesetzt. Sollten diese beschossen werden haben sie das Recht sich zu verteidigen.<br/><br/>
+				5. Cal 50 HMMWVs und Blackhawks sind nicht für die Bekämpfung von Personen gedacht. Sollten diese beschossen werden haben sie das Recht sich zu verteidigen.<br/>
+				6. Sollte eine unmittelbare Bedrohung des Lebens eines Polizisten oder Zivilisten bestehen, darf der Blackhawk oder der HMMWV cal50 gegen Personen eingestzt werden. Die Entscheidung obliegt dem Dienstgradhöchsten und ältesten.<br/>
 				"
 		]
 	];
@@ -360,7 +363,11 @@ player createDiarySubject ["controls","Steuerung"];
 				3. Sind weniger als 6 Polizeibeamte aktiv im Dienst sind diese von der 15 Minuten Spawnregel befreit. Beachtet das die Firma nicht als Polizei angesehen wird. Sie haben IMMER ihre 15 Minuten.<br/>
 				4. Der Chief bzw Chief Assistent hat das letzte Wort (Gesetzt, Richter und Henker)<br/>
 				5. Befehl und Gehorsam ist zu beachten.<br/>
-				6. Es müssen immer mind. 6 Polizistenslots belegt sein, bevor ein Zivilistenslot belegt wird!<br/><br/>
+				6. Es müssen immer mind. 6 Polizistenslots belegt sein, bevor ein Zivilistenslot belegt wird!<br/>
+				7. Nach längeren Gefechten - mit mind. 4 gefallenen Polizisten - wird offiziell eine Amoklage ausgerufen.<br/>
+				7.1. Somit steht es der Polizei frei, erheblich stärker bewaffnete Verstärkung zu rufen, welche auch gepanzerte Fahrzeuge/Hubschrauber beinhaltet.<br/>
+				7.2 Waffenausgabe erst ab Rang: Sergeant. Nach dem Einsatz sind ALLE WAFFEN UNVERZÜGLICH in die WaKa zu legen!<br/>
+				7.3 Der Polizei steht frei, ob sie den Einsatz einer Spezialeinheit (Die Firma) genehmigen. Diese Einheit wird temporär in den offiziellen Polizeidienst gehoben und untersteht der Polizeiführung vor Ort.<br/>
 				"
 		]
 	];
@@ -369,12 +376,26 @@ player createDiarySubject ["controls","Steuerung"];
 		[
 			"Die Firma", 
 				"
-				Die Firma ist der Polizei unterstellt zählt aber nicht als Polizeibeamte. <br/><br/>
 				
-				Die Firma ist berechtigt Personen zu Kontrollieren, festzunehmen und der Polizei zu übergeben. Desweiteren darf die Firma zum Eigenschutz oder zum Schutze der Bevölkerung gebaruch von der Schusswaffe machen.	Sie ist auch dazu berechtigt die Polizei jederzeit zu Unterstützen.
-				Sollten keine oder nur sehr wenige (weniger als 4) Polizisten da sein, darf die Firma die Polizei arbeit übernehmen bist genug Polizisten da sind. (Tickets, Gefängnis).
-				Sind ausreichend Polizisten da, übernimmt die Firma eine unterstützende Rolle und ist dem ranghöchsten Polizisten unterstellt (mind Lieutenant).
+				1. Jeder beabsichtigte Regelverstoß wird mit Rauswurf aus der Firma geahndet!<br/><br/>
+
+				2. Wir sind in erster Linie eine Sicherheitsfirma und keine Polizisten (Fahrzeug bzw. Personenkontrollen, etc.).<br/><br/>
+
+				3. Die Unterstützung der Polizei erfolgt NUR nach Aufforderung seitens der Polizei. Andernfalls gilt das Jedermannsrecht.<br/><br/>
+
+				4. Die MK200, sowie die MXM werden/wird nur dann aus dem Arsenal genommen, wenn ein Ranghoher Offizier der Firma es gestattet und die Situation es erfordert
+				(Oberst, Major). Sollte niemand anwesend sein, dann Rangsystem abwärts. Die Verantwortung mit dem sachgemäßen Umgang liegt stets beim Ranghöchsten. Standard ist die MP5!<br/><br/>
+
+				5. Das tragen der Polizeiuniform, das benutzen des Polizei Fuhrpark und der Polizeiwaffen ist strengstens untersagt. (siehe Punkt 1)<br/><br/>
+
+				5.1 Ausnahmeregel (Punkt5). Um flüchtige Personen zu stellen und/oder zu verfolgen tritt Regel 5 (ausgenommen Polizeiuniform) ausser Kraft (Nutzung des Fuhrparks der Polizei).
+				Jedoch nur nach Absprache mit der Polizei.<br/><br/>
+
+				6. Der Polizeifunkkanal wird nur in Ausnahmefällen und/oder Gefahrensituationen benutzt. Wenn die Situation es zulässt nur nach Absprache mit dem ranghöchsten Polizisten.<br/><br/>
+
+				7. Die einzelnen Polizeichannels bitte nicht willkürlich betreten! Immer erst den ranghöchsten Polizisten informieren, bzw. kurz anfragen ob es in Ordnung ist.<br/><br/>
 				
+				8. Die Firma darf sich unter keinen Umständen selbst in den Polizeidienst versetzen (und somit Sonderrechte erhalten).
 				"
 		]
 	];
@@ -387,6 +408,7 @@ player createDiarySubject ["controls","Steuerung"];
 				2. Feste Gruppen müssen sich strikt an die Serverregeln halten, da sie immer mit mehreren Spielern unterwegs sind.<br/>
 				3. Alle Gruppenbasen sind Spawn und Safezones!<br/>
 				4. Alle Gruppenmitglieder müssen klar ersichtliche und einheitliche Tag's nutzen.<br/>
+				5. Es ist VERBOTEN das sich Gangs über einen längeren Zeitraum und Allgemein verbünden. Gangs dürfen sich für einmalige Aktionen verbünden Bank, Geiselnahme, Terrorakt etc.<br/>
 				"
 		]
 	];

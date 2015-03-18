@@ -18,23 +18,32 @@ if(count _containers >= (_houseCfg select 1)) exitWith {hint "You cannot place a
 _slots = _house getVariable ["slots",[]];
 _positions = [_house] call life_fnc_getBuildingPositions;
 _pos = [0,0,0];
+_Dir = 0;
 {
 	_slots = _house getVariable ["slots",[]];
-	if(!(_forEachIndex in _slots)) exitWith {
-		_slots set[count _slots,_forEachIndex];
+	if(!(_forEachIndex in _slots)) exitWith
+	{
+		_slots pushBack _forEachIndex;
 		_house setVariable["slots",_slots,true];
-		_pos = _x;
+		_pos = [(_x select 0),(_x select 1),(_x select 2)];
+		_Dir = (_x select 3);
 	};
 } foreach _positions;
-if(_pos isEqualTo [0,0,0]) exitWith {hint "No more free storage spaces in your house."};
-switch (_boxType) do {
+//if(_pos isEqualTo [0,0,0]) exitWith {hint "No more free storage spaces in your house."};
+switch (_boxType) do
 
-	case "D41_LagerkisteLagerhaus": {
+{
+	case "D41_LagerkisteLagerhaus":
+	{
 		player removeMagazine "D41_LagerkisteLagerhaus";
 		_container = "D41_LagerhausKiste_F" createVehicle [0,0,0];
-		_container setPosATL _pos;
+		_HouseDir = getDir _house;
+		_Dir = (_HouseDir - _Dir);
+		_container setDir _Dir;
+		_container setPos _pos;
+		_container allowDamage false;
 		
-		_containers set [count _containers,_container];
+		_containers pushBack _container;
 		_house setVariable["containers",_containers,true];
 		[[_house],"TON_fnc_updateHouseContainers",false,false] call life_fnc_MP;
 		

@@ -1115,7 +1115,7 @@
 		<Key ID="STR_Keys_DropKey">
 			<Original>Drop Key</Original>
 			<English>Drop Key</English>
-			<German>Schlüssel wegwerfen</German>
+			<German>Wegwerfen</German>
 			<French>Jeter Clef</French>
 			<Italian>Abbandona Chiave</Italian>
 			<Portuguese>Remover Chave</Portuguese>
@@ -1128,7 +1128,7 @@
 		<Key ID="STR_Keys_GiveKey">
 			<Original>Give Key</Original>
 			<English>Give Key</English>
-			<German>Schlüssel geben</German>
+			<German>Weitergeben</German>
 			<French>Donner Clef</French>
 			<Italian>Dai Chiave</Italian>
 			<Portuguese>Dar Chave</Portuguese>

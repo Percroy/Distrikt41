@@ -45,7 +45,8 @@ if(count life_spawn_point == 0) then
 				};
 				
 				{_bPos = _bPos - [(_house buildingPos _x)];} foreach (_house getVariable ["slots",[]]);
-				_pos = _bPos call BIS_fnc_selectRandom;
+				//_pos = _bPos call BIS_fnc_selectRandom;
+				_pos = _house buildingPos 0;
 				player setPosATL _pos;
 			} else {
 				player setPos (getMarkerPos (life_spawn_point select 0));

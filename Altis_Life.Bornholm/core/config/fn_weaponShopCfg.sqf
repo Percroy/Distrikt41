@@ -1191,8 +1191,7 @@ switch(_shop) do
 	{
 		switch(true) do
 		{
-			case (!license_cop_gangfirma && playerSide != west): {"Du bist kein Firma Mitglied!"};
-			default
+			case (license_cop_gangfirma && playerSide == west && (__GETC__(life_coplevel) == 1)):
 			{
 				["Die Firma Security - Rekruten",
 					[
@@ -1220,6 +1219,7 @@ switch(_shop) do
 					]
 				];
 			};
+			default {"Du bist kein Firma Mitglied!"};
 		};
 	};
 	
@@ -1227,9 +1227,7 @@ switch(_shop) do
 	{
 		switch(true) do
 		{
-			case (!license_cop_gangfirma && playerSide != west): {"Du bist kein Firma Mitglied!"};
-			case (__GETC__(life_coplevel) < 2): {"Dein Rang ist zu niedrig."};
-			default
+			case (license_cop_gangfirma && playerSide == west && (__GETC__(life_coplevel) == 2)):
 			{
 				["Die Firma Security",
 					[
@@ -1257,6 +1255,7 @@ switch(_shop) do
 					]
 				];
 			};
+			default {"Dein Rang ist zu niedrig."};
 		};
 	};
 	
@@ -1264,9 +1263,7 @@ switch(_shop) do
 	{
 		switch(true) do
 		{
-			case (!license_cop_gangfirma && playerSide != west): {"Du bist kein Firma Mitglied!"};
-			case (__GETC__(life_coplevel) < 5): {"Dein Rang ist zu niedrig."};
-			default
+			case (license_cop_gangfirma && playerSide == west && (__GETC__(life_coplevel) == 4)):
 			{
 				["Die Firma Security",
 					[
@@ -1301,6 +1298,7 @@ switch(_shop) do
 					]
 				];
 			};
+			default {"Dein Rang ist zu niedrig."};
 		};
 	};
 	

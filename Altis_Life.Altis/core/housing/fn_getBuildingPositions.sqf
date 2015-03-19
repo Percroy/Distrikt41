@@ -30,7 +30,7 @@ private["_building","_arr","_restricted","_exitLoop","_i"];
 		case "Land_i_House_Small_02_V2_F": {[[2,-1,-0.7,-90],[-0.3,-1.5,-0.65,-90]]};
 		case "Land_i_House_Small_02_V3_F": {[[2,-1,-0.7,-90],[-0.3,-1.5,-0.65,-90]]};
 		case "Land_i_House_Small_03_V1_F": {[[-4.5,-1,0,90],[-4.5,3,0,90],[3.7,-4,0,0]]};
-		default {[0,0,0,0]};
+		default {[[0,0,0,0]]};
 	};
 	
 	{

@@ -11,7 +11,7 @@ StepByStep Installationsanleitung
 
 Vorab:
 Wir verachten jegliche Art der Geldmacherei durch Mods/Addons/Scripte!
-Sei es durch Donation Stores oder "Pseudo-Donations" (Beispiel: Spieler haben nur auf Objekte Zugriff, wenn man "gespendet" hat. Go F*** yourself!) (Anm.: Wir haben lieber niemanden, der dieses Package nutzen will, als auch nur einen, der damit Geld macht, um sich damit selbst zu bereichern!)
+Sei es durch Donation Stores oder "Pseudo-Donations" (Beispiel: Spieler haben nur auf Objekte Zugriff, wenn man "gespendet" hat. Go F*** yourself!) (Anm.: Wir haben lieber niemanden, der dieses Package nutzen will, als auch nur einen, der damit Geld macht!)
 
 
 Aus diesem Grund haben wir in unseren Dateien alle Verweise bzw. Scripte, die Bezug auf ein Donationsystem nahmen, vollständig entfernt! Dies soll auch so bleiben!

@@ -45,18 +45,18 @@ switch (_side) do
 		if(license_civ_rebel && playerSide == civilian) then
 		{
 			_return = [
-				["civ_spawn_reb1","Banditenlager Nord","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-				["civ_spawn_reb2","Banditenlager Sued","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+				["civ_spawn_reb1","Banditenlager Insel","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+				["civ_spawn_reb2","Banditenlager Hotel","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
 			];
 		};
 		
 		if(!license_civ_rebel && !license_civ_ganglast && !license_civ_gangrr && !license_civ_gangpow && playerSide == civilian) then
 		{
 			_return = [
-				["civ_spawn_2","Hauptstadt Aakirkeby","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-				["civ_spawn_1","Roenne","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-				["civ_spawn_3","Nexoe","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-				["civ_spawn_4","Svaneke","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
+				["civ_spawn_2","Pyrgos","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+				["civ_spawn_1","Kavala","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+				["civ_spawn_3","Athira","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+				["civ_spawn_4","Paros","\a3\ui_f\data\map\MapControl\watertower_ca.paa"]
 			];
 		};
 		
@@ -119,9 +119,9 @@ switch (_side) do
 		
 		if(((call life_mediclevel) >= 2) && playerSide == independent && !license_med_adac) then {
 		_return = _return +[
-								["medic_spawn_3","Aakirkeby Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
-								["medic_spawn_1","Roenne Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
-								["medic_spawn_2","Nexoe Regional","\a3\ui_f\data\map\MapControl\hospital_ca.paa"]
+								["medic_spawn_3","Pyrgos Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
+								["medic_spawn_1","Kavala Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"],
+								["medic_spawn_2","Athira Hospital","\a3\ui_f\data\map\MapControl\hospital_ca.paa"]
 							];
 		};
 			

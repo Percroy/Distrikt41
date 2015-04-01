@@ -21,11 +21,11 @@ switch (_side) do
 		if(!license_cop_gangfirma && playerSide == west) then
 		{
 			_return = [
-			["cop_spawn_2","Aakirkeby HQ","\a3\ui_f\data\map\MapControl\fuelstation_ca.paa"],
-			["cop_spawn_1","Roenne HQ","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-			["cop_spawn_3","Nexoe HQ","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
-			["cop_spawn_4","Uebungsgelaende","\a3\ui_f\data\map\Markers\NATO\b_air.paa"],
-			["cop_spawn_7","Gefaengnis","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"]
+			["cop_spawn_2","Pyrgos HQ","\a3\ui_f\data\map\MapControl\fuelstation_ca.paa"],
+			["cop_spawn_1","Kavala HQ","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+			["cop_spawn_3","Athira HQ","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
+			["cop_spawn_4","Air HQ","\a3\ui_f\data\map\Markers\NATO\b_air.paa"],
+			["cop_spawn_7","Jail/Knast","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"]
 			];
 		};
 		

@@ -21,10 +21,11 @@ switch (_filter) do
 	{
 		if(license_cop_gangfirma) then
 		{
-			_ret set[count _ret,["U_I_G_Story_Protagonist_F","Streife",500]];
-			_ret set[count _ret,["U_B_CombatUniform_mcam_tshirt","Einsatz Shirt",1000]];
-			_ret set[count _ret,["U_B_CombatUniform_mcam_vest","Einsatz kurz",1000]];
-			_ret set[count _ret,["U_B_CombatUniform_mcam","Einsatz lang",1000]];
+			_ret set[count _ret,["U_PMC_CombatUniformLS_BSGPSB","Streife 1",500]];
+			_ret set[count _ret,["U_PMC_CombatUniformRS_BSGPSB","Streife 2",500]];
+			_ret set[count _ret,["U_PMC_BlckPolo_BluPants","Zivil 1",500]];
+			_ret set[count _ret,["LOP_U_ISIS_Fatigue_01","Zivil 2",500]];
+			_ret set[count _ret,["rds_uniform_Functionary1","Anzug",500]];
 		};
 		if(license_cop_gangfirma && license_cop_air) then
 		{
@@ -42,18 +43,12 @@ switch (_filter) do
 		};
 		if(license_cop_gangfirma) then
 		{
-			_ret set[count _ret,["H_MilCap_mcamo",nil,75]];
-			_ret set[count _ret,["H_Cap_usblack",nil,100]];
-			_ret set[count _ret,["rhsusf_patrolcap_ocp",nil,200]];
-			_ret set[count _ret,["H_Watchcap_cbr",nil,300]];
-			_ret set[count _ret,["rhsusf_ach_helmet_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_ach_helmet_ESS_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_ach_helmet_headset_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_ach_helmet_headset_ess_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_ach_helmet_camo_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_opscore_04_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_opscore_03_ocp",nil,1000]];
-			_ret set[count _ret,["rhsusf_patrolcap_ocp",nil,200]];
+			_ret set[count _ret,["H_Cap_pmc_headphones",nil,75]];
+			_ret set[count _ret,["H_Booniehat_khk_hs",nil,75]];
+			_ret set[count _ret,["D41_sniper_cap",nil,75]];
+			_ret set[count _ret,["H_Beret_02",nil,300]];
+			_ret set[count _ret,["D41_swat_leader_helmet","Einsatzhelm 1",1000]];
+			_ret set[count _ret,["LOP_H_PASGTHelmet_OLV","Einsatzhelm 2",1000]];
 		};
 		if(license_cop_gangfirma && license_cop_air) then
 		{
@@ -71,8 +66,10 @@ switch (_filter) do
 			_ret set[count _ret,["G_Squares",nil,25]];
 			_ret set[count _ret,["G_Lowprofile",nil,25]];
 			_ret set[count _ret,["G_Combat",nil,25]];
-			_ret set[count _ret,["Pomi_Goggles_Snd",nil,25]];
-			_ret set[count _ret,["rhs_scarf",nil,25]];
+			_ret set[count _ret,["G_Tactical_Clear",nil,25]];
+			_ret set[count _ret,["Pomi_Goggles",nil,25]];
+			_ret set[count _ret,["G_Bandanna_shades",nil,25]];
+			_ret set[count _ret,["G_Balaclava_lowprofile",nil,25]];
 	};
 	
 	//Vest
@@ -80,14 +77,9 @@ switch (_filter) do
 	{
 		if(license_cop_gangfirma) then
 		{
-			_ret set[count _ret,["V_PlateCarrierH_CTRG",nil,2000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp","Blank",2500]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_Medic","Medic",3000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_Repair","Repair",3000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_Rifleman","Rifleman",3000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_SAW","MG",3000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_Squadleader","Squadleader",3000]];
-			_ret set[count _ret,["rhsusf_iotv_ocp_Teamleader","Teamleader",3000]];
+			_ret set[count _ret,["D41_police_belt","Tiefziehholster",2000]];
+			_ret set[count _ret,["V_PlateCarrier1_PMC_blk","Streifenweste",2000]];
+			_ret set[count _ret,["V_PlateCarrierInd_PMC_blk","Einsatzweste",4000]];
 		};
 	};
 	
@@ -96,8 +88,7 @@ switch (_filter) do
 	{
 		_ret =
 		[
-			["rhsusf_assault_eagleaiii_ocp",nil,300],
-			["B_Carryall_mcamo",nil,500],
+			["B_Kitbag_blk",nil,300],
 			["B_Parachute",nil,300],
 			["B_UAV_01_backpack_F",nil,15000]
 		];

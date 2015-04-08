@@ -180,7 +180,6 @@ class Life_Client_Core
 		class virt_shops {};
 		class vehShopLicenses {};
 		class vehicleAnimate {};
-		class weaponShopCfg {};
 		class houseConfig {};
 		
 		//Clothing Store Configs

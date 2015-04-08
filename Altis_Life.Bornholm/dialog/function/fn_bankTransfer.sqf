@@ -19,13 +19,15 @@ _tax = [_val] call life_fnc_taxRate;
 if((_val + _tax) > D41_atmGeld) exitWith {hint format[localize "STR_ATM_SentMoneyFail",_val,_tax]};
 
 D41_atmGeld = D41_atmGeld - (_val + _tax);
+[6] call SOCK_fnc_updatePartial;
 
 [[_val,profileName],"TON_fnc_clientWireTransfer",_unit,false] call life_fnc_MP;
 [] call life_fnc_atmMenu;
 hint format[localize "STR_ATM_SentMoneySuccess",[_val] call life_fnc_numberText,_unit getVariable["realname",name _unit],[_tax] call life_fnc_numberText];
-[1] call SOCK_fnc_updatePartial;
+//[1] call SOCK_fnc_updatePartial;
 closeDialog 0;
 [] call life_fnc_atmMenu;
 hint format["Du hast %1€ an %2 überwiesen.\n\nDie Überweisungsgebühr in Höhe von %3€ wurde von Deinem Konto abgezogen.",[_val] call life_fnc_numberText,_unit getVariable["realname",name _unit],[_tax] call life_fnc_numberText];
 [] call life_fnc_hudUpdate;
-[] call SOCK_fnc_updateRequest; //Silent Sync
+
+//[] call SOCK_fnc_updateRequest; //Silent Sync

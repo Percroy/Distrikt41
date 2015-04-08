@@ -87,4 +87,5 @@ switch (_state) do
 		hint localize "STR_Civ_RevokeLicense_Firearm";
 	};
 };
-[] call SOCK_fnc_updateRequest;
+[2] call SOCK_fnc_updatePartial;
+//[] call SOCK_fnc_updateRequest;

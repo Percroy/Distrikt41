@@ -100,6 +100,7 @@ switch(_mode) do
 		_value = [_this,2,0,[0]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_numberSafe;
 		_query = format["UPDATE players SET Karma='%1' WHERE playerid='%2'",_value,_uid];
+		diag_log format ["PartUpdate - Karma - UID : %1 : %2",  _uid, _value];
 	};
 };
 

@@ -210,7 +210,7 @@ switch (_shop) do
 		if(license_cop_gangfirma) then
 		{
 			_return set[count _return,
-			["D41_Reb_Offroad_01_F",3500]];
+			["D41_Offroad_Snake_TFuel_TPS",3500]];
 			_return set[count _return,
 			["D41_rhsusf_m998_d_4dr",35000]];
 			_return set[count _return,
@@ -274,7 +274,9 @@ switch (_shop) do
 		if(license_cop_gangfirma) then
 		{
 			_return set[count _return,
-			["civ_md500_urban",28000]];
+			["PMC_MH9",28000]];
+			_return set[count _return,
+			["D41_Heli_Transport_04_covered_F",45000]];
 			_return set[count _return,
 			["D41_Heli_Transport_03_unarmed_F",75500]];
 		};
@@ -300,7 +302,9 @@ switch (_shop) do
 		if(license_cop_gangfirma) then
 		{
 			_return set[count _return,
-			["civ_md500_urban",28000]];
+			["PMC_MH9",28000]];
+			_return set[count _return,
+			["D41_Heli_Transport_04_covered_F",45000]];
 			_return set[count _return,
 			["D41_Heli_Transport_03_unarmed_F",75500]];
 		};

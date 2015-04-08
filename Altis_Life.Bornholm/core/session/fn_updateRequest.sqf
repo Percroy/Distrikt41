@@ -22,5 +22,5 @@ switch (playerSide) do {
 	};
 };
 
-diag_log format [":::::::::::: fn_update_request.sqf PlayerUID: %1\n ProfileName: %2\n playerSide: %3\n Geld: %4\n Bank: %5\n Karma: %6",getPlayerUID player,(profileName),playerSide,D41_Geld,D41_atmGeld,life_D41_Karma];
+diag_log format [":::::::::::: fn_update_request.sqf: PlayerUID: %1 - ProfileName: %2 - playerSide: %3 - Geld: %4 - Bank: %5 - Karma: %6",getPlayerUID player,(profileName),playerSide,D41_Geld,D41_atmGeld,life_D41_Karma];
 [_packet,"DB_fnc_updateRequest",false,false] call life_fnc_MP;

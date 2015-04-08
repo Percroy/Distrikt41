@@ -24,7 +24,7 @@ switch (_shop) do
 	case "wongs": {_return = ["Wong's Food Cart",["D41_SchildkroetenSuppe","D41_Schildkroete"]]};
 	case "coffee": {_return = ["Eggi's Spezialitätenladen",["D41_Kaffee","D41_Donuts","D41_Krabben"]]};
 	case "fishmarket": {_return = ["Altis Fisch Markt",["D41_Salema","D41_Ornate","D41_Mackrele","D41_Mullet","D41_Tunfisch","D41_Katzenhai"]]};
-	case "KnastDealer": {_return = ["Knastfras",["D41_WaterBottle","D41_Apfel","D41_Spitzhacke"]]};
+	case "KnastDealer": {_return = ["Knastfras",["D41_WaterBottle","D41_Hasenfleisch","ItemRadio","D41_Spitzhacke"]]};
 	case "Biergarten": {_return = ["Biergarten",["D41_WaterBottle","D41_Kaffee","D41_Apfelschnaps","D41_Pfirsichschnaps","D41_BeefJerky","D41_Donuts"]]};
 	
 	//Edle Rohstoffe u. Weiterverarbeitung
@@ -148,7 +148,7 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
+					"rhs_weap_m4_carryhandle_pmag","30Rnd_556x45_Stanag",
 					"optic_ACO_grn","optic_Aco","optic_MRCO","acc_flashlight","acc_pointer_IR"]
 					]};
 					
@@ -157,9 +157,9 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod",
 					"hlc_rifle_M4","30Rnd_556x45_Stanag",
-					"FHQ_optic_AC11704","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15","pmc_earpiece"]
+					"FHQ_optic_AC11704","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15","pmc_earpiece"]
 					]};
 					
 					if((_shop == "cop") && ((call life_coplevel) == 5) && !license_cop_gangfirma) then {_return = 
@@ -167,11 +167,11 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
-					"hlc_rifle_M4",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod","hlc_rifle_M4",
 					"rhs_weap_m16a4_grip","FHQ_optic_AC11704","FHQ_optic_AC12136",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","RH_compm4s","RH_SFM952V",
-					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR",
+					"arifle_MX_blk_F","30Rnd_65x39_caseless_mag_Tracer",
+					"RH_m3lr","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR",
 					"HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 
@@ -180,12 +180,12 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
-					"hlc_rifle_M4",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod","hlc_rifle_M4",
 					"rhs_weap_m16a4_grip","FHQ_optic_AC11704","FHQ_optic_AC12136",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","RH_compm4s","RH_SFM952V",
+					"arifle_MX_blk_F","30Rnd_65x39_caseless_mag_Tracer",
 					"hlc_rifle_vendimus","29rnd_300BLK_STANAG","rhsusf_acc_ACOG3",
-					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
+					"RH_m3lr","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 					
@@ -194,13 +194,13 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
-					"hlc_rifle_M4",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod","hlc_rifle_M4",
 					"rhs_weap_m16a4_grip","FHQ_optic_AC11704","FHQ_optic_AC12136",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","RH_compm4s","RH_SFM952V",
+					"arifle_MX_blk_F","30Rnd_65x39_caseless_mag_Tracer",
 					"hlc_rifle_vendimus",
 					"hlc_rifle_Bushmaster300","29rnd_300BLK_STANAG","rhsusf_acc_ACOG3","FHQ_optic_HWS_G33",
-					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
+					"RH_m3lr","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 					
@@ -209,14 +209,14 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
-					"hlc_rifle_M4",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod","hlc_rifle_M4",
 					"rhs_weap_m16a4_grip","FHQ_optic_AC11704","FHQ_optic_AC12136",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","RH_compm4s","RH_SFM952V",
+					"arifle_MX_blk_F","30Rnd_65x39_caseless_mag_Tracer",
 					"hlc_rifle_vendimus",
 					"hlc_rifle_Bushmaster300","29rnd_300BLK_STANAG","rhsusf_acc_ACOG3","FHQ_optic_HWS_G33",
 					"rhs_weap_m14ebrri","20Rnd_762x51_Mag","FHQ_optic_LeupoldERT",
-					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
+					"RH_m3lr","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 					
@@ -225,15 +225,15 @@ switch (_shop) do
 					["RH_mk2","RH_10Rnd_22LR_mk2",
 					"CUP_sgun_M1014","CUP_8Rnd_B_Beneli_74Slug",
 					"hlc_smg_mp5a2","hlc_30Rnd_9x19_B_MP5",
-					"hlc_rifle_hk53","hlc_30rnd_556x45_b_HK33","hlc_optic_accupoint_g3",
-					"hlc_rifle_M4",
+					"rhs_weap_m4_carryhandle_pmag","rhs_weap_m4_bipod","hlc_rifle_M4",
 					"rhs_weap_m16a4_grip","FHQ_optic_AC11704","FHQ_optic_AC12136",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","RH_compm4s","RH_SFM952V",
+					"arifle_MX_blk_F","30Rnd_65x39_caseless_mag_Tracer",
 					"hlc_rifle_vendimus",
 					"hlc_rifle_Bushmaster300","29rnd_300BLK_STANAG","rhsusf_acc_ACOG3","FHQ_optic_HWS_G33",
 					"rhs_weap_m14ebrri","20Rnd_762x51_Mag","FHQ_optic_LeupoldERT",
 					"hlc_rifle_psg1","hlc_20rnd_762x51_b_G3",
-					"RH_m3lr","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
+					"RH_m3lr","FHQ_optic_HWS_G33","optic_ACO_grn","optic_Aco","optic_MRCO","optic_Arco","optic_Hamr","optic_SOS","optic_DMS","optic_LRPS","acc_flashlight","acc_pointer_IR","rhsusf_acc_anpeq15",
 					"Laserdesignator","HandGrenade_Stone","pmc_earpiece","B_UavTerminal"]
 					]};
 				};
@@ -248,7 +248,7 @@ switch (_shop) do
 					"hlc_smg_mp5sd6","hlc_30Rnd_9x19_SD_MP5",
 					"CUP_arifle_G36C_camo","CUP_muzzle_snds_G36_desert","CUP_optic_CompM2_Woodland","CUP_arifle_G36C","CUP_muzzle_snds_G36_black","CUP_optic_CompM2_Black",
 					"hlc_rifle_CQBR","30Rnd_556x45_Stanag","30Rnd_556x45_Stanag_Tracer_Green","hlc_muzzle_556NATO_KAC","RH_compm4s","RH_SFM952V",
-					"arifle_MXC_Black_F","30Rnd_65x39_caseless_mag_Tracer",
+					"arifle_MXC_Black_F","arifle_MXM_Black_F","muzzle_snds_H","30Rnd_65x39_caseless_mag_Tracer",
 					"hlc_rifle_g3ka4","hlc_20rnd_762x51_b_G3","hlc_20rnd_762x51_T_G3","hlc_20rnd_762x51_S_G3","hlc_muzzle_snds_g3",
 					"hlc_rifle_vendimus",
 					"hlc_rifle_Bushmaster300","29rnd_300BLK_STANAG",

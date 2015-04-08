@@ -21,8 +21,8 @@ switch (_side) do
 		if(!license_cop_gangfirma && playerSide == west) then
 		{
 			_return = [
-			["cop_spawn_2","Aakirkeby HQ","\a3\ui_f\data\map\MapControl\fuelstation_ca.paa"],
 			["cop_spawn_1","Roenne HQ","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+			["cop_spawn_2","Aakirkeby HQ","\a3\ui_f\data\map\MapControl\fuelstation_ca.paa"],
 			["cop_spawn_3","Nexoe HQ","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"],
 			["cop_spawn_4","Uebungsgelaende","\a3\ui_f\data\map\Markers\NATO\b_air.paa"],
 			["cop_spawn_7","Gefaengnis","\a3\ui_f\data\map\GroupIcons\badge_rotate_0_gs.paa"]
@@ -31,8 +31,8 @@ switch (_side) do
 		
 		if(license_cop_gangfirma && playerSide == west) then {
 		_return = _return +[
-								["cop_spawn_5","Firma Security","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
-								["cop_spawn_6","Firma AirHQ","\a3\ui_f\data\map\Markers\NATO\b_air.paa"]
+								["cop_spawn_5","Firma Security HQ","\a3\ui_f\data\map\MapControl\watertower_ca.paa"],
+								["cop_spawn_6","Firma Roenne Stadt","\a3\ui_f\data\map\Markers\NATO\b_air.paa"]
 							];
 		};
 		

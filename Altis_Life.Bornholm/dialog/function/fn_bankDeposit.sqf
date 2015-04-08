@@ -16,9 +16,10 @@ if(_value > D41_Geld) exitWith {hint localize "STR_ATM_NotEnoughCash"};
 
 D41_Geld = D41_Geld - _value;
 D41_atmGeld = D41_atmGeld + _value;
+[6] call SOCK_fnc_updatePartial;
 
 hint format[localize "STR_ATM_DepositMSG",[_value] call life_fnc_numberText];
 [] call life_fnc_atmMenu;
-[] call SOCK_fnc_updateRequest; //Silent Sync
+//[] call SOCK_fnc_updateRequest; //Silent Sync
 closeDialog 0;
 [] call life_fnc_hudUpdate;

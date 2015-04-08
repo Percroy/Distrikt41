@@ -113,7 +113,7 @@ switch (_filter) do
 		};
 		if(life_D41_Karma < -8000) then
 		{
-			_ret pushback ["V_PlateCarrierL_CTRG",nil,4500];
+			_ret pushback ["V_PlateCarrier1_rgr",nil,4500];
 		};
 	};
 	

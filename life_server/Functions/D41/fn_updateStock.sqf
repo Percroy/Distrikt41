@@ -44,8 +44,7 @@
 		waitUntil{sleep (random 0.3); !DB_Async_Active};
 		_queryResult2 = [_query,2] call DB_fnc_asyncCall;
 
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Stock abrufen  _queryResult: %1", _queryResult];
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Stock abrufen2 _queryResult2: %1", _queryResult2];
+		diag_log format [":::::::::::::::::::::: fn_updateStock - Stock abrufen  Stock: %1", _queryResult];
 
 		//------------------------------ Produkte zuteilen
 		D41_StockApfel = _queryResult select 0;
@@ -75,23 +74,23 @@
 		D41_StockKrabben = _queryResult select 24;
 
 		//------------------------------ Stock berechnen
-		D41_StockApfel = D41_StockApfel - (_playercount * 6);						if(D41_StockApfel < 0)then {D41_StockApfel = 0;};		
-		D41_StockPfirsich = D41_StockPfirsich - (_playercount * 6);					if(D41_StockPfirsich < 0)then {D41_StockPfirsich = 0;};
-		D41_StockApfelschnaps = D41_StockApfelschnaps - (_playercount * 3);			if(D41_StockApfelschnaps < 0)then {D41_StockApfelschnaps = 0;};
-		D41_StockPfirsichschnaps = D41_StockPfirsichschnaps - (_playercount * 3);	if(D41_StockPfirsichschnaps < 0)then {D41_StockPfirsichschnaps = 0;};
-		D41_StockheroinP = D41_StockheroinP - (round (_playercount * 1));		if(D41_StockheroinP < 0)then {D41_StockheroinP = 0;};
+		D41_StockApfel = D41_StockApfel - (_playercount * 8);						if(D41_StockApfel < 0)then {D41_StockApfel = 0;};		
+		D41_StockPfirsich = D41_StockPfirsich - (_playercount * 8);					if(D41_StockPfirsich < 0)then {D41_StockPfirsich = 0;};
+		D41_StockApfelschnaps = D41_StockApfelschnaps - (_playercount * 2);			if(D41_StockApfelschnaps < 0)then {D41_StockApfelschnaps = 0;};
+		D41_StockPfirsichschnaps = D41_StockPfirsichschnaps - (_playercount * 2);	if(D41_StockPfirsichschnaps < 0)then {D41_StockPfirsichschnaps = 0;};
+		D41_StockheroinP = D41_StockheroinP - (round (_playercount * 1));			if(D41_StockheroinP < 0)then {D41_StockheroinP = 0;};
 		D41_Stockoilp = D41_Stockoilp - (round (_playercount * 0.3));				if(D41_Stockoilp < 0)then {D41_Stockoilp = 0;};
-		D41_Stockmarijuana = D41_Stockmarijuana - (round (_playercount * 1));	if(D41_Stockmarijuana < 0)then {D41_Stockmarijuana = 0;};
-		D41_Stockbjerky = D41_Stockbjerky - (_playercount * 3);						if(D41_Stockbjerky < 0)then {D41_Stockbjerky = 0;};
-		D41_Stockcocainep = D41_Stockcocainep - (round (_playercount * 1));		if(D41_Stockcocainep < 0)then {D41_Stockcocainep = 0;};
+		D41_Stockmarijuana = D41_Stockmarijuana - (round (_playercount * 1));		if(D41_Stockmarijuana < 0)then {D41_Stockmarijuana = 0;};
+		D41_Stockbjerky = D41_Stockbjerky - (_playercount * 1);						if(D41_Stockbjerky < 0)then {D41_Stockbjerky = 0;};
+		D41_Stockcocainep = D41_Stockcocainep - (round (_playercount * 1));			if(D41_Stockcocainep < 0)then {D41_Stockcocainep = 0;};
 		D41_Stockdiamondc = D41_Stockdiamondc - (round (_playercount * 0.25));		if(D41_Stockdiamondc < 0)then {D41_Stockdiamondc = 0;};
 		D41_Stockiron_r = D41_Stockiron_r - (round (_playercount * 0.30));			if(D41_Stockiron_r < 0)then {D41_Stockiron_r = 0;};
 		D41_Stockcopper_r = D41_Stockcopper_r - (round (_playercount * 0.30));		if(D41_Stockcopper_r < 0)then {D41_Stockcopper_r = 0;};
 		D41_Stocksalt_r = D41_Stocksalt_r - (_playercount * 2);						if(D41_Stocksalt_r < 0)then {D41_Stocksalt_r = 0;};
 		D41_Stockcoal = D41_Stockcoal - (round (_playercount * 1));					if(D41_Stockcoal < 0)then {D41_Stockcoal = 0;};
 		D41_Stockglass = D41_Stockglass - (round (_playercount * 0.25));			if(D41_Stockglass < 0)then {D41_Stockglass = 0;};
-		D41_StockApfelsaft = D41_StockApfelsaft - (_playercount * 2);				if(D41_StockApfelsaft < 0)then {D41_StockApfelsaft = 0;};
-		D41_StockPfirsichsaft = D41_StockPfirsichsaft - (_playercount * 2);			if(D41_StockPfirsichsaft < 0)then {D41_StockPfirsichsaft = 0;};
+		D41_StockApfelsaft = D41_StockApfelsaft - (_playercount * 1);				if(D41_StockApfelsaft < 0)then {D41_StockApfelsaft = 0;};
+		D41_StockPfirsichsaft = D41_StockPfirsichsaft - (_playercount * 1);			if(D41_StockPfirsichsaft < 0)then {D41_StockPfirsichsaft = 0;};
 		D41_StockTon = D41_StockTon - (round (_playercount * 0.25));				if(D41_StockTon < 0)then {D41_StockTon = 0;};
 		D41_StockZement = D41_StockZement - (round (_playercount * 0.25));			if(D41_StockZement < 0)then {D41_StockZement = 0;};
 		D41_StockWKomp = D41_StockWKomp - (round (_playercount * 1));				if(D41_StockWKomp < 0)then {D41_StockWKomp = 0;};
@@ -99,7 +98,7 @@
 		D41_StockFahrzeugteile = D41_StockFahrzeugteile - (_playercount * 10);		if(D41_StockFahrzeugteile < 0)then {D41_StockFahrzeugteile = 0;};
 		D41_StockKerosin = D41_StockKerosin - (_playercount * 1);					if(D41_StockKerosin < 0)then {D41_StockKerosin = 0;};
 		D41_StockKalkstein = D41_StockKalkstein - (round (_playercount * 0.25));	if(D41_StockKalkstein < 0)then {D41_StockKalkstein = 0;};
-		D41_StockKrabben = D41_StockKrabben - (round (_playercount * 1));			if(D41_StockKrabben < 0)then {D41_StockKrabben = 0;};
+		D41_StockKrabben = D41_StockKrabben - (round (_playercount * 0.5));			if(D41_StockKrabben < 0)then {D41_StockKrabben = 0;};
 
 		//------------------------------ neuen Stock eintragen
 		_query2 = format["UPDATE stocksys SET
@@ -160,8 +159,6 @@
 		_thread2 = [_query2,false] spawn DB_fnc_asyncCall;
 		waitUntil {scriptDone _thread2};
 
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Stock gesetzt _queryResult: %1", _queryResult];
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Stock gesetzt _queryResult2: %1", _queryResult2];
 		diag_log format [":::::::::::::::::::::: fn_updateStock - Preisanpassungen gestartet"];
 		//Preise aktualisieren
 		//Hauptscript
@@ -173,10 +170,10 @@
 				
 				_High = (_mid*1.5);
 				_VHigh = (_mid*2);
+				_EHigh = (_mid*2.5);
 
-				//Kauf oder Verkauf, keine Ahnung mehr (Ich tendiere zum verkauf von dem Zeug
-				//Sell or Buy, can't remember (i think it was buying it)
-				// Oo derp oO
+				//Kaufpreis für Spieler
+				//Sellprice for player
 				
 				if(_Type <= _Empty)then
 					{
@@ -202,14 +199,13 @@
 					{
 						D41_PCheckK = (_VKPreis*80)
 					};
-				if(_Type > _VHigh)then
+				if(_Type >= _VHigh)then
 					{
 						D41_PCheckK = (_VKPreis*75)
 					};
 				
-				//Kauf oder Verkauf, keine Ahnung mehr (Ich tendiere zum Ankauf)
-				// Sell or Buy, can't remember (i think it was selling it)
-				// Oo derp oO
+				//Verkaufspreis für Spieler
+				//Sellprice for Player
 				
 				if(_Type <= _Empty)then
 					{
@@ -235,10 +231,15 @@
 					{
 						D41_PCheckV = (_EKPreis*80)
 					};
-				if(_Type > _VHigh)then
+				if(_Type >= _VHigh && _Type <= _EHigh)then
 					{
-						D41_PCheckV = (_EKPreis*75)
+						D41_PCheckV = (_EKPreis*70)
 					};
+				if(_Type > _EHigh)then
+					{
+						D41_PCheckV = (_EKPreis*45)
+					};
+					
 				_queryResult set[_Num,D41_PCheckK];
 				_queryResult2 set[_Num,D41_PCheckV];
 			};
@@ -293,11 +294,11 @@
 		//Kalkstein
 		_Num = 23; _Type = D41_StockKalkstein; _VKPreis = (315/100); _EKPreis = (250/100); _mid = 800; [] call _D41_PreisAnpassung;
 		//Krabben
-		_Num = 24; _Type = D41_StockKrabben; _VKPreis = (2900/100); _EKPreis = (1850/100); _mid = 1800; [] call _D41_PreisAnpassung;
+		_Num = 24; _Type = D41_StockKrabben; _VKPreis = (2900/100); _EKPreis = (1850/100); _mid = 1300; [] call _D41_PreisAnpassung;
 
 
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Preisänderungen beendet _queryResult: %1", _queryResult];
-		diag_log format [":::::::::::::::::::::: fn_updateStock - Preisänderungen beendet _queryResult2: %1", _queryResult2];
+		diag_log format [":::::::::::::::::::::: fn_updateStock - Preisänderungen beendet K_Preise: %1", _queryResult];
+		diag_log format [":::::::::::::::::::::: fn_updateStock - Preisänderungen beendet V_Preise: %1", _queryResult2];
 		D41_KPreisliste = _queryResult;
 		D41_VPreisliste = _queryResult2;
 		publicVariable "D41_KPreisliste";

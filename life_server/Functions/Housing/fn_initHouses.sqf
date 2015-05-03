@@ -6,7 +6,7 @@
 */
 
 waitUntil{!DB_Async_Active};
-_query = format["delete from houses where pid not in (select f.playerid from players f)"];
+_query = format["DELETE FROM houses WHERE pid NOT IN (SELECT f.playerid FROM players f)"];
 [_query,2] call DB_fnc_asyncCall;
 
 private["_queryResult","_query","_count"];
@@ -32,6 +32,7 @@ for [{_x=0},{_x<=_count},{_x=_x+10}] do {
 		};
 		diag_log format [":::: initHouses: # %1 --- _x = %2",_abc, _x];
 		_abc = _abc + 1;
-		sleep 0.2; 
+		//sleep 0.2;
 	} foreach _queryResult;
 };
+D41_HouseInitDone = true;

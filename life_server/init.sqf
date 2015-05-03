@@ -122,7 +122,9 @@ client_session_list = [];
 	};
 } foreach allUnits;
 
+D41_HouseInitDone = false;
 [] spawn TON_fnc_initHouses;
+waitUntil{D41_HouseInitDone};
 
 //Lockup the dome
 if(worldName == "Bornholm")then

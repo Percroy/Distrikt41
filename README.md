@@ -113,7 +113,7 @@ Missions Dateien herunterladen
 ------------------
 
 Schritt 7:
-D41_extDB31.rar öffnen und KOMPLETTEN Inhalt in den Arma 3 HAUPTORDNER (Nicht Addons, Nicht DLC oder sonst irgendwohin!) kopieren!
+D41_extDB31.rar öffnen und KOMPLETTEN Inhalt (ExtDB, extDb2.dll und extdb-conf.ini) in den A3Server (Nicht Addons, Nicht DLC oder sonst irgendwohin!) kopieren!
 
 ftp://D41_Mirror1@136.243.2.202/D41_extDB31.rar
 

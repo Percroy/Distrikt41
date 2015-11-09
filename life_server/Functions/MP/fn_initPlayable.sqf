@@ -1,3 +1,4 @@
+if(true)exitWith{};
 _code = [_this,0,{},[{}]] call bis_fnc_param;
 _codeVar = "BIS_fnc_initPlayable_code" + str (["BIS_fnc_initPlayable_code",1] call bis_fnc_counter);
 

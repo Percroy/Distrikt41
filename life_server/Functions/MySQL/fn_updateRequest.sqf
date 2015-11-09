@@ -12,8 +12,9 @@ _side = [_this,2,sideUnknown,[civilian]] call BIS_fnc_param;
 _cash = [_this,3,0,[0]] call BIS_fnc_param;
 _bank = [_this,4,5000,[0]] call BIS_fnc_param;
 _Karma = _this select 5;
-_licenses = [_this,6,[],[[]]] call BIS_fnc_param;
-_gear = [_this,7,[],[[]]] call BIS_fnc_param;
+_Position = _this select 6;
+_licenses = [_this,7,[],[[]]] call BIS_fnc_param;
+_gear = [_this,8,[],[[]]] call BIS_fnc_param;
 
 //Get to those error checks.
 if((_uid == "") OR (_name == "")) exitWith {};
@@ -33,10 +34,10 @@ for "_i" from 0 to count(_licenses)-1 do {
 _licenses = [_licenses] call DB_fnc_mresArray;
 
 switch (_side) do {
-	case west: {_query = format["UPDATE players SET name='%1', cash='%2', bankacc='%3', cop_gear='%4', cop_licenses='%5' WHERE playerid='%6'",_name,_cash,_bank,_gear,_licenses,_uid];};
-	case civilian: {_query = format["UPDATE players SET name='%1', cash='%2', bankacc='%3', Karma='%4', civ_licenses='%5', civ_gear='%7', arrested='%8' WHERE playerid='%6'",_name,_cash,_bank,_Karma,_licenses,_uid,_gear,[_this select 8] call DB_fnc_bool];};
-	case independent: {_query = format["UPDATE players SET name='%1', cash='%2', bankacc='%3', med_licenses='%4' WHERE playerid='%5'",_name,_cash,_bank,_licenses,_uid];};
+	case west: {_query = format["UpdateRequest+west:%1:%2:%3:%4:%5:%6",_name,_cash,_bank,_gear,_licenses,_uid];};
+	case civilian: {_query = format["UpdateRequest+civilian+pos:%1:%2:%3:%4:%5:%6:%7:%8:%9",_name,_cash,_bank,_Karma,_licenses,_uid,_gear,[_this select 9] call DB_fnc_bool,_Position];};
+	case independent: {_query = format["UpdateRequest+independent:%1:%2:%3:%4:%5",_name,_cash,_bank,_licenses,_uid];};
 };
 
-waitUntil {sleep (random 0.3); !DB_Async_Active};
+//waitUntil{sleep (random 0.3); !DB_Async_Active};
 _queryResult = [_query,1] call DB_fnc_asyncCall;

@@ -5,7 +5,7 @@ class CfgPatches
 	{
 		units[] = {"C_man_1"};
 		weapons[] = {};
-		requiredAddons[] = {"A3_Data_F","A3_Soft_F","A3_Soft_F_Offroad_01","A3_Characters_F"};
+		requiredAddons[] = {"A3_Data_F","A3_Soft_F","A3_Characters_F"};
 		fileName = "life_server.pbo";
 		author[]= {"TAW_Tonic"}; 
 	};
@@ -45,7 +45,6 @@ class CfgFunctions
 			class asyncCall{};
 			class insertRequest{};
 			class updateRequest{};
-			//class mresToArray {};
 			class insertVehicle {};
 			class bool{};
 			class mresString {};
@@ -72,8 +71,6 @@ class CfgFunctions
 		{
 			file = "\life_server\Functions\Jail";
 			class jailSys {};
-			class jailTimer{};
-			class jailPlayer{};
 		};
 		
 		class Client_Code
@@ -95,7 +92,9 @@ class CfgFunctions
 			class vehicleDead {};
 			class spawnVehicle {};
 			class getVehicles {};
+			class getVehiclesImp {};
 			class vehicleStore {};
+			class vehicleStoreCop {};
 			class vehicleDelete {};
 			class spikeStrip {};
 			class logIt {};
@@ -116,12 +115,16 @@ class CfgFunctions
 			class sellHouse {};
 			class updateHouseContainers {};
 			class houseCleanup {};
+			class D41_ReSetHouseVars{};
 		};
+		
 		class Gangs
  		{
  			file = "\life_server\Functions\Gangs";
  			class insertGang {};
  			class queryPlayerGang {};
+			class queryGangKarma {};
+			class UpdateGangKarma {};
  			class removeGang {};
  			class updateGang {};
  		};
@@ -131,24 +134,32 @@ class CfgFunctions
 	class D41_System
 	{
 		tag = "D41";
-			class D41
-			{
-				file = "\life_server\Functions\D41";
-				class updateStock {};
-				class queryHouseRent {};
-				class insertSkillSys {};
-				class removeSkillSys {};
-				class insertKarma {};
-				class queryStockSys {};
-				class insertStockSys {};
-				class insertBuySys {};
-				class GWH{};
-				class D41_RandomBlitze{};
-				class D41Lightning{};
-				class insertHouseGangKey{};
-				class BuyHouseCheck{};
-				//class CleanupTest{};
-			};
+		class D41
+		{
+			file = "\life_server\Functions\D41";
+			class updateStock {};
+			class queryHouseRent {};
+			class insertSkillSys {};
+			class removeSkillSys {};
+			class insertKarma {};
+			class queryStockSys {};
+			class insertStockSys {};
+			class GWH{};
+			class D41_RandomBlitze{};
+			class D41Lightning{};
+			class insertHouseGangKey{};
+			class BuyHouseCheck{};
+			class BlockChemFabrik{};
+			class robBlock{};
+		};
+		
+		class D41_GangBase
+		{
+			file = "\life_server\Functions\D41\Gangs";
+			class GangBaseManagement{};
+			class GangBaseVarUpdate{};
+			class LeaveGang{};
+		};
     };
 };
 

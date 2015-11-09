@@ -5,31 +5,40 @@
 	Used in selling the house, sets the owned to 0 and will cleanup with a 
 	stored procedure on restart.
 */
-private["_house","_houseID","_ownerID","_housePos","_query","_radius","_containers"];
-_house = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
+private["_house","_ownerID","_housePos","_query","_radius","_containers"];
+_house = param[0,ObjNull,[ObjNull]];
 if(isNull _house) exitWith {systemChat ":SERVER:sellHouse: House is null";};
 
-_houseID = _house getVariable["house_id",-1];
-if(_houseID == -1) then
-{
-	_housePos = getPosATL _house;
-	_ownerID = (_house getVariable "house_owner") select 0;
-	_query = format["UPDATE houses SET owned='0', pos='[]' WHERE pid='%1' AND pos='%2' AND owned='1'",_ownerID,_housePos];
-	//systemChat format[":SERVER:sellHouse: house_id does not exist, query: %1",_query];
-}
-else
-{
-	//systemChat format[":SERVER:sellHouse: house_id is %1",_houseID];
-	_query = format["UPDATE houses SET owned='0', pos='[]' WHERE id='%1'",_houseID];
-};
 
-_house setVariable["house_id",nil,true];
-_house setVariable["house_owner",nil,true];
-_house setVariable["house_owned",false,true];
-_house setVariable["house_soldCheck",true,true];
-_radius = (((boundingBoxReal _house select 0) select 2) - ((boundingBoxReal _house select 1) select 2));
-_containers = nearestObjects[(getPosATL _house),["D41_Box_IND_Grenades_F","D41_supplyCrate_F","D41_LagerhausKiste_F"],_radius];
-{deleteVehicle _x} foreach _containers;
-waitUntil{!DB_Async_Active};
-[_query,1] call DB_fnc_asyncCall;
-_house setVariable["house_sold",nil,true];
+	_housePos = getPosATL _house;
+	diag_log format [":::::::::: SELL HOUSE: _housePos: %1", _housePos];
+	
+	_houseID = [_house, "house_id"] call life_fnc_D41_GetHouseInfos;
+	diag_log format [":::::::::: SELL HOUSE: _houseID: %1", _houseID];
+	
+	
+	if(_houseID isEqualTo "KeineDaten")exitWith{diag_log format ["::::::::: FEHLER: sellhouse: isNil _houseID: _houseID: %1", _houseID];};
+	_query = format["SellHouse+1:%1",_houseID];
+	
+	_index = -1;
+	{
+		if(str(_housePos) isEqualTo str(_x)) exitWith
+		{
+			_index = _forEachIndex;
+			_exit = false;
+		};
+	} foreach D41_HausListe;
+	diag_log format ["::::::::: SELL HOUSE: _index %1", _index];
+	
+	if(_index != -1) then {
+		D41_HausListe set[_index,-1];
+		D41_HausListe = D41_HausListe - [-1];
+	};
+	publicVariable "D41_HausListe";
+	
+	
+	_house setVariable["House_Infos",nil,true];
+	_radius = (((boundingBoxReal _house select 0) select 2) - ((boundingBoxReal _house select 1) select 2));
+	_containers = nearestObjects[(getPosATL _house),["D41_supplyCrate_F","D41_LagerhausContainer_Blue"],_radius];
+	{deleteVehicle _x} foreach _containers;
+	[_query,1] call DB_fnc_asyncCall;

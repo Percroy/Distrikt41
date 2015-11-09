@@ -15,7 +15,7 @@ while {true} do {
 	if(_loops >= 25) exitWith {};
 	if(isNull _client) exitWith {};
 	if(!alive _client) exitWith {
-		_containers = nearestObjects[_client,["WeaponHolderSimulated"],7];
+		_containers = nearestObjects[_client,["GroundWeaponHolder"],7];
 		if(count _containers > 0) then {
 			{deleteVehicle _x;} foreach _containers; //Delete the containers.
 		};

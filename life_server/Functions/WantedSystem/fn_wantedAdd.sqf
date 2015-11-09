@@ -8,33 +8,12 @@
 	Description:
 	Adds or appends a unit to the wanted list.
 */
-private["_uid","_type","_index","_data","_crimes","_val","_customBounty","_name","_pastCrimes","_query","_queryResult"];
+private["_uid","_type","_index","_data","_crimes","_val","_customBounty","_name","_pastCrimes","_query","_queryResult","_DB_fnc_mresToArray"];
 _uid = [_this,0,"",[""]] call BIS_fnc_param;
 _name = [_this,1,"",[""]] call BIS_fnc_param;
 _type = [_this,2,"",[""]] call BIS_fnc_param;
 _customBounty = [_this,3,-1,[0]] call BIS_fnc_param;
 if(_uid == "" OR _type == "" OR _name == "") exitWith {}; //Bad data passed.
-
-_DB_fnc_mresToArray =
-{
-	private["_array"];
-	_array = [_this,0,"",[""]] call BIS_fnc_param;
-	if(_array == "") exitWith {[]};
-	_array = toArray(_array);
-
-	for "_i" from 0 to (count _array)-1 do
-	{
-		_sel = _array select _i;
-		if(_sel == 96) then
-		{
-			_array set[_i,39];
-		};
-	};
-
-	_array = toString(_array);
-	_array = call compile format["%1", _array];
-	_array;
-};
 
 //What is the crime?
 switch(_type) do
@@ -89,25 +68,45 @@ if(count _type == 0) exitWith {}; //Not our information being passed...
 if(_customBounty != -1) then {_type set[1,_customBounty];};
 //Search the wanted list to make sure they are not on it.
 
-_result = format["SELECT wantedID, wantedCrimes FROM wanted WHERE wantedID='%1'",_uid];
-waitUntil{!DB_Async_Active};
+_result = format["WantedAdd:%1", _uid];
+//waitUntil{!DB_Async_Active};
 _queryResult = [_result,2] call DB_fnc_asyncCall;
 
 _name = [_name] call DB_fnc_mresString;
 _val = [(_type select 1)] call DB_fnc_numberSafe;
 
-if(count _queryResult != 0) then
-{
+_DB_fnc_mresToArray =
+	{
+		private["_array"];
+		_array = [_this,0,"",[""]] call BIS_fnc_param;
+		if(_array == "") exitWith {[]};
+		_array = toArray(_array);
+
+		for "_i" from 0 to (count _array)-1 do
+		{
+			_sel = _array select _i;
+			if(_sel == 96) then
+			{
+				_array set[_i,39];
+			};
+		};
+
+		_array = toString(_array);
+		_array = call compile format["%1", _array];
+		_array;
+	};
+
+if(count _queryResult != 0) then {
 	_pastCrimes = [(_queryResult select 1)] call _DB_fnc_mresToArray;
 	_pastCrimes pushBack (_type select 0);
 	_pastCrimes = [_pastCrimes] call DB_fnc_mresArray;
-	_query = format["UPDATE wanted SET wantedCrimes = '%1', wantedBounty = wantedBounty + '%2', active = '1' WHERE wantedID='%3'",_pastCrimes,_val,_uid];
+	_query = format["WantedAdd+2:%1:%2:%3",_pastCrimes,_val,_uid];
 } else {
 	_crimes = [[(_type select 0)]] call DB_fnc_mresArray;
-	_query = format["INSERT INTO wanted (wantedID, wantedName, wantedCrimes, wantedBounty, active) VALUES('%1','%2','%3','%4', '1')",_uid,_name,_crimes,_val];
+	_query = format["WantedAdd+3:%1:%2:%3:%4",_uid,_name,_crimes,_val];
 };
 
 if(!isNil "_query") then {
-	waitUntil{!DB_Async_Active};
+	//waitUntil{!DB_Async_Active};
 	[_query,2] call DB_fnc_asyncCall;
 };

@@ -12,18 +12,18 @@ _name = [_this,1,"",[""]] call BIS_fnc_param;
 //Bad data check
 if(_uid == "" OR  _name == "") exitWith {};
 _tickTime = diag_tickTime;
-_name = [_name] call DB_fnc_mresString;
 
-_wantedCheck = format["SELECT wantedName FROM wanted WHERE wantedID='%1'",_uid];
-waitUntil{!DB_Async_Active};
-_wantedQuery = [_wantedCheck,2] call DB_fnc_asyncCall;
+_wantedCheck = format["WantedProfUpdate:%1",_uid];
+//waitUntil{!DB_Async_Active};
+_wantedQuery = [_wantedCheck,2,true] call DB_fnc_asyncCall;
 if(count _wantedQuery == 0) exitWith {diag_log "Person not wanted, no update";};
 _wantedQuery = call compile format["%1",_wantedQuery];
+_wantedQuery = (_wantedQuery select 0);
 
 if(_name != (_wantedQuery select 0)) then
 {
-	_query = format["UPDATE wanted SET wantedName = '%2' WHERE wantedID ='%1'",_uid,_name];
-	waitUntil {!DB_Async_Active};
+	_query = format["WantedProfUpdate+2:%1:%2",_name,_uid];
+	//waitUntil{!DB_Async_Active};
 	[_query,2] call DB_fnc_asyncCall;
 
 	diag_log "------------- Update Player Name -------------";

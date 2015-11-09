@@ -13,37 +13,47 @@ _ret = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _ret) exitWith {};
 _ret = owner _ret;
 _inStatement = "";
-_list = [];
-_units = [];
 _tickTime = diag_tickTime;
-{if((side _x) == civilian) then {_units pushBack (getPlayerUID _x)};} foreach playableUnits;
+_UnblockQuery = false;
 
+_serverzeit = time;
+sleep 0.1;
+if(isNil "D41_WLReqBlockZeit")then{D41_WLReqBlockZeit = _serverzeit;};
+diag_log format["::::::::::::::: wantedFetch D41_WLReqBlockZeit: %1 - Serverzeit: %2",D41_WLReqBlockZeit, time];
+if(time >= D41_WLReqBlockZeit)then{_UnblockQuery = true;};
+
+if(_UnblockQuery)then
 {
-	if(_inStatement == "") then
+	//waitUntil{!DB_Async_Active};
+	_queryResult = ["WantedFetch",2,true] call DB_fnc_asyncCall;
+	diag_log format["::::::::::::::: wantedFetch _queryResult: %1",_queryResult];
+	D41_WLReqBlockZeit = _serverzeit + (5 * 60); //Bsp.: 5 x 60 (Multiplikator * Minute(60s) - ("300" theoretisch auch möglich)
+	diag_log format["::::::::::::::: wantedFetch Neue D41_WLReqBlockZeit: %1",D41_WLReqBlockZeit];
+	
+	_units = [];
 	{
-		_inStatement = _x;
-	}
-	else
+		if((side _x) == civilian) then {_units pushBack (getPlayerUID _x)};
+	} foreach playableUnits;
+	
+	D41_Wantedlist = [];
 	{
-		_inStatement = _inStatement + "','" + _x;
-	};
-} forEach _units;
-
-_result = format["SELECT wantedID, wantedName FROM wanted WHERE active='1' AND wantedID in ('%1')",_inStatement];
-waitUntil{!DB_Async_Active};
-_queryResult = [_result,2,true] call DB_fnc_asyncCall;
-
+		if((_x select 0) in _units)then
+		{
+			D41_Wantedlist pushBack (_x);
+		};
+	}forEach _queryResult;
+	[[0,"Wanted Liste aktualisiert!"],"life_fnc_broadcast",WEST,false] call life_fnc_MP;
+	[[0,"Wanted Liste aktualisiert!"],"life_fnc_broadcast",WEST,false] call life_fnc_MP;
+};
+if(!_UnblockQuery)then
 {
-	_list pushBack (_x);
-}
-forEach _queryResult;
+	_Restzeit = round(D41_WLReqBlockZeit - _serverzeit);
+	[[0,format["Wantedliste aus Zwischenspeicher geladen!! Zeit bis zum Update: %1 Sekunden", _Restzeit]],"life_fnc_broadcast",_ret,false] call life_fnc_MP;
+};
+diag_log format["::::::::::::::: wantedFetch _list: %1",D41_Wantedlist];
 
-if(count _list == 0) exitWith {[[_list],"life_fnc_wantedList",_ret,false] spawn life_fnc_MP;};
 
-diag_log "------------- Client Query Request -------------";
-diag_log format["QUERY: %1",_result];
-diag_log format["Time to complete: %1 (in seconds)",(diag_tickTime - _tickTime)];
-diag_log format["Result: %1",_list];
-diag_log "------------------------------------------------";
 
-[[_list],"life_fnc_wantedList",_ret,false] spawn life_fnc_MP;
+if(count D41_Wantedlist == 0) exitWith {[[],"life_fnc_wantedList",_ret,false] spawn life_fnc_MP;};
+
+[[D41_Wantedlist],"life_fnc_wantedList",_ret,false] spawn life_fnc_MP;

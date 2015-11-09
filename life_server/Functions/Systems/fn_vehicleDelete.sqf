@@ -16,7 +16,7 @@ _type = [_this,4,"",[""]] call BIS_fnc_param;
 if(_vid == -1 OR _pid == "" OR _sp == 0 OR isNull _unit OR _type == "") exitWith {};
 _unit = owner _unit;
 
-_query = format["UPDATE vehicles SET alive='0' WHERE pid='%1' AND id='%2'",_pid,_vid];
+_query = format["VehicleDelete:%1:%2",_pid,_vid];
 
-waitUntil {!DB_Async_Active};
+//waitUntil{!DB_Async_Active};
 _thread = [_query,1] call DB_fnc_asyncCall;

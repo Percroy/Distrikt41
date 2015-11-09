@@ -4,32 +4,29 @@
 //
 //	Beschreibung: Der an die Gang weitergegebene Schlüßel wird in die DB eingetragen
 //::::::::::::  ::::::::::::\\
-	private["_house","_uid","_housePos","_query"];
+private["_house","_uid","_housePos","_query"];
 
-	_house = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
-	_uid = [_this,1,"",[""]] call BIS_fnc_param;
-	_mode = _this select 2;
+_house = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
+_uid = [_this,1,"",[""]] call BIS_fnc_param;
+_mode = _this select 2;
 	
-	if(isNull _house OR _uid == "") exitWith {};
+if(isNull _house OR _uid == "") exitWith {};
 
-	_housePos = getPosATL _house;
+_housePos = getPosATL _house;
 	
-	if(_mode == 0)then
-	{
-		_GangQuery = format["SELECT id FROM gangs WHERE active='1' AND members LIKE '%2%1%2'",_uid,"%"];
-		waitUntil{!DB_Async_Active};
-		_GangQueryResult = [_GangQuery,2] call DB_fnc_asyncCall;
-
-		_query = format["UPDATE houses SET gid = '%1' WHERE pos='%2' AND pid='%3'",_GangQueryResult select 0, _housePos, _uid];
-		waitUntil {!DB_Async_Active};
-		_thread = [_query,false] spawn DB_fnc_asyncCall;
-		waitUntil {scriptDone _thread};
+switch (_mode) do {	
+	case 0: {
+		//waitUntil{!DB_Async_Active};
+		_GangQuery = [format["insertHouseGangKey+0:%1","%" + _uid + "%"], 2] call DB_fnc_asyncCall;
+		
+		_query = format["insertHouseGangKey+1:%1:%2:%3",_uid, (_GangQuery select 0),_housePos];
+		//waitUntil{!DB_Async_Active};
+		[_query] spawn DB_fnc_asyncCall;
 	};
 	
-	if(_mode == 1)then
-	{
-		_query = format["UPDATE houses SET gid = '0' WHERE pos='%1' AND pid='%2'",_housePos, _uid];
-		waitUntil {!DB_Async_Active};
-		_thread = [_query,false] spawn DB_fnc_asyncCall;
-		waitUntil {scriptDone _thread};
+	case 1: {
+		_query = format["insertHouseGangKey+2:%1:%2",_uid,_housePos];
+		//waitUntil{!DB_Async_Active};
+		[_query] spawn DB_fnc_asyncCall;		
 	};
+};

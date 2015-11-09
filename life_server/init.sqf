@@ -1,6 +1,7 @@
 #define __CONST__(var1,var2) var1 = compileFinal (if(typeName var2 == "STRING") then {var2} else {str(var2)})
 DB_Async_Active = false;
-DB_Async_ExtraLock = false;
+D41_GKarmaQry = false;
+//DB_Async_ExtraLock = false;	//DEV Ausgeschalten auf anraten von Itsyuka
 life_server_isReady = false;
 setTerrainGrid 45;
 publicVariable "life_server_isReady";
@@ -8,53 +9,65 @@ publicVariable "life_server_isReady";
 [] execVM "\life_server\functions.sqf";
 [] execVM "\life_server\eventhandlers.sqf";
 [] execVM "\life_server\Functions\D41\fn_D41_RandomBlitze.sqf";
-//[] execVM "\life_server\Functions\D41\fn_CleanupTest.sqf";
+[] execVM "\life_server\Functions\D41\fn_KarmaGarageVehicleList.sqf";
 
 //I am aiming to confuse people including myself, ignore the ui checks it's because I test locally.
 
 _extDB = false;
 
-//Only need to setup extDB once.
+//Only need to setup extDB2 once.
 if(isNil {uiNamespace getVariable "life_sql_id"}) then {
-	life_sql_id = round(random(9999));
-	__CONST__(life_sql_id,life_sql_id);
-	uiNamespace setVariable ["life_sql_id",life_sql_id];
-
-	//extDB Version
-	_result = "extDB" callExtension "9:VERSION";
-	diag_log format ["extDB: Version: %1", _result];
-	if(_result == "") exitWith {};
-	if ((parseNumber _result) < 14) exitWith {diag_log "Error: extDB version 14 or Higher Required";};
-
-	//Initialize the database
-	_result = "extDB" callExtension "9:DATABASE:Database2";
-	if(_result != "[1]") exitWith {diag_log "extDB: Error with Database Connection";};
-	_result = "extDB" callExtension format["9:ADD:DB_RAW_V2:%1",(call life_sql_id)];
-	if(_result != "[1]") exitWith {diag_log "extDB: Error with Database Connection";};
-	"extDB" callExtension "9:LOCK";
-	_extDB = true;
-	diag_log "extDB: Connected to Database";
+        life_sql_id = round(random(9999));
+        __CONST__(life_sql_id,life_sql_id);
+        uiNamespace setVariable ["life_sql_id",life_sql_id];
+ 
+        //extDB2 Version
+        _result = "extDB2" callExtension "9:VERSION";
+        diag_log format ["extDB2: Version: %1", _result];
+        if(_result == "") exitWith {};
+        if ((parseNumber _result) < 14) exitWith {diag_log "Error: extDB2 version 14 or Higher Required";};
+ 
+        //Initialize the database
+        _result = "extDB2" callExtension "9:ADD_DATABASE:Database2";
+                                                                       
+        if(_result != "[1]") exitWith {diag_log "extDB2: Error with Database Connection";};
+       
+        _result = "extDB2" callExtension format["9:ADD_DATABASE_PROTOCOL:Database2:SQL_CUSTOM_V2:%1:Distrikt41",(call life_sql_id)];
+        if(_result != "[1]") exitWith {diag_log "extDB2: Error with Database Connection";};
+        "extDB2" callExtension "9:LOCK";
+        _extDB = true;
+        diag_log "extDB2: Connected to Database";
 } else {
-	life_sql_id = uiNamespace getVariable "life_sql_id";
-	__CONST__(life_sql_id,life_sql_id);
-	_extDB = true;
-	diag_log "extDB: Still Connected to Database";
+        life_sql_id = uiNamespace getVariable "life_sql_id";
+        __CONST__(life_sql_id,life_sql_id);
+        _extDB = true;
+        diag_log "extDB2: Still Connected to Database";
 };
 
-//Broadbase PV to Clients, to warn about extDB Error.
+//Broadbase PV to Clients, to warn about extDB2 Error.
 //	exitWith to stop trying to run rest of Server Code
 if (!_extDB) exitWith {
 	life_server_extDB_notLoaded = true;
 	publicVariable "life_server_extDB_notLoaded";
-	diag_log "extDB: Error checked extDB/logs for more info";
+	diag_log "extDB2: Error checked extDB2/logs for more info";
 };
 
-//Run procedures for SQL cleanup on mission start.
-["CALL resetLifeVehicles",1] spawn DB_fnc_asyncCall;
-["CALL deleteDeadVehicles",1] spawn DB_fnc_asyncCall;
-["CALL deleteOldHouses",1] spawn DB_fnc_asyncCall;
-["CALL deleteOldGangs",1] spawn DB_fnc_asyncCall; //Maybe delete old gangs
-["DELETE FROM houses WHERE owned='0'",1] spawn DB_fnc_asyncCall;
+//Cleanup
+["ServerCleanup",1] spawn DB_fnc_asyncCall;
+
+//Zugriff auf Gangbasen einrichten
+//waitUntil{!DB_Async_Active};
+_query = ["GetRentedGangBases",2,true] call DB_fnc_asyncCall;
+D41_RentedGangBasesIDs = [];
+D41_RentedGangBasesLiz = [];
+{
+	D41_RentedGangBasesIDs pushback (_x select 0);
+	D41_RentedGangBasesLiz pushback (_x select 1);
+}forEach _query;
+diag_log format [":::::::::::::::::::: INIT: D41_RentedGangBasesIDs GangID: %1", D41_RentedGangBasesIDs];
+diag_log format [":::::::::::::::::::: INIT: D41_RentedGangBasesLiz LizName: %1", D41_RentedGangBasesLiz];
+publicVariable "D41_RentedGangBasesIDs";
+publicVariable "D41_RentedGangBasesLiz";
 
 life_adminlevel = 0;
 life_medicLevel = 0;
@@ -65,9 +78,10 @@ __CONST__(JxMxE_PublishVehicle,"No");
 
 //[] execVM "\life_server\fn_initHC.sqf";
 
-life_radio_west = radioChannelCreate [[0, 0.95, 1, 0.8], "Polizei Kanal (NON-RP)", "%UNIT_NAME", []];
+life_radio_west = radioChannelCreate [[0, 0.95, 1, 0.8], "Police Channel", "%UNIT_NAME", []];
 life_radio_civ = radioChannelCreate [[0, 0.95, 1, 0.8], "Zivi Knuddelz Chat <3<3<3", "%UNIT_NAME", []];
-life_radio_indep = radioChannelCreate [[0.9, 0, 0, 0.8], "Medizinischer Notfall", "%UNIT_NAME", []];
+life_radio_indep = radioChannelCreate [[0.9, 0, 0, 0.8], localize  "STR_D41_Medic_Channel", "%UNIT_NAME", []];
+life_radio_Dead = radioChannelCreate [[0.9, 0.5, 0.5, 0.8], "I am dead", "%UNIT_NAME", []];
 
 serv_sv_use = [];
 
@@ -97,8 +111,6 @@ client_session_list = [];
 	};
 };
 
-[] spawn TON_fnc_federalUpdate;
-
 [] spawn
 {
 	while {true} do
@@ -122,7 +134,6 @@ client_session_list = [];
 	};
 } foreach allUnits;
 
-D41_HouseInitDone = false;
 [] spawn TON_fnc_initHouses;
 waitUntil{D41_HouseInitDone};
 
@@ -130,37 +141,77 @@ waitUntil{D41_HouseInitDone};
 if(worldName == "Bornholm")then
 {
 	private["_dome","_rsb"];
-	_dome = nearestObject [[1543.5426,12932.632,16.641211],"Land_MilOffices_V1_F"];
-	for "_i" from 1 to 8 do {_dome setVariable[format["bis_disabled_Door_%1",_i],1,true]; _dome animate [format["Door_%1_rot",_i],0];};
+	_dome = nearestObject [[9744.48,5253.83,1],"Land_Offices_01_V1_F"];
+	D41_Hausliste pushback (getPosATL _dome);
+	for "_i" from 1 to 8 do {_dome animate [format["Door_%1_rot",_i],0];};
 	_dome allowDamage false;
+	
+	//Lockup Police Roenne
+	for "_i" from 1 to 8 do {CopRoenne animate [format["Door_%1_rot",_i],0];};
+	CopRoenne allowDamage false;
+	
 	//Lockup the Wakas
-	private["_waka01","_waka02","_waka03"];
-	_waka01 = nearestObject [[9419.01,5974.51,0],"Land_Cargo_House_V3_F"];
-	_waka02 = nearestObject [[1990.3379,8977.2695,0],"Land_Cargo_House_V3_F"];
-	_waka03 = nearestObject [[9305.70,2561.84,0],"Land_Cargo_House_V3_F"];
-	_waka01 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka01 animate [format["Door_%1_rot",1],0];
-	_waka02 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka02 animate [format["Door_%1_rot",1],0];
-	_waka03 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka03 animate [format["Door_%1_rot",1],0];
+	{
+		_x animate [format["Door_%1_rot",1],0];
+	}forEach [waka01, waka02, waka03];
+	
+	//LockUp fed_bank_building
+	for "_i" from 1 to 8 do {fed_bank_building animate [format["Door_%1_rot",_i],0];};
 };
 if(worldName == "Altis")then
 {
 	private["_dome","_rsb"];
 	_dome = nearestObject [[12407.433,14351.427,0],"Land_Offices_01_V1_F"];
-	for "_i" from 1 to 8 do {_dome setVariable[format["bis_disabled_Door_%1",_i],1,true]; _dome animate [format["Door_%1_rot",_i],0];};
+	for "_i" from 1 to 8 do {_dome animate [format["Door_%1_rot",_i],0];};
 	_dome allowDamage false;
 	//Lockup the Wakas
-	private["_waka01","_waka02","_waka03"];
-	_waka01 = nearestObject [[20767.281,6815.1353,0],"Land_Cargo_House_V3_F"];
-	_waka02 = nearestObject [[13809.527,18978.412,0],"Land_Cargo_House_V3_F"];
-	_waka03 = nearestObject [[16599.314,12819.904,0],"Land_Cargo_House_V3_F"];
-	_waka01 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka01 animate [format["Door_%1_rot",1],0];
-	_waka02 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka02 animate [format["Door_%1_rot",1],0];
-	_waka03 setVariable[format["bis_disabled_Door_%1",1],1,true]; _waka03 animate [format["Door_%1_rot",1],0];
+	{
+		_x animate [format["Door_%1_rot",1],0];
+	}forEach [waka01, waka02, waka03];
 };
+
+
 //Fill PoliceCrates
-avka01 addWeaponCargoGlobal ["hlc_rifle_M4",3]; avka01 addWeaponCargoGlobal ["rhs_weap_m16a4_grip",3]; avka01 addWeaponCargoGlobal ["rhs_weap_m14ebrri",1]; avka01 addWeaponCargoGlobal ["arifle_MX_SW_Black_F",1]; avka01 addWeaponCargoGlobal ["rhs_weap_M320",1]; avka01 addItemCargoGlobal ["optic_Hamr", 8]; avka01 addItemCargoGlobal ["FHQ_optic_AC12136", 8]; avka01 addItemCargoGlobal ["FHQ_optic_LeupoldERT", 1]; avka01 addItemCargoGlobal ["HandGrenade_Stone", 6]; avka01 addItemCargoGlobal ["SmokeShellBlue", 4]; avka01 addMagazineCargoGlobal ["3Rnd_SmokeGreen_Grenade_shell", 3]; avka01 addMagazineCargoGlobal ["3Rnd_UGL_FlareWhite_F", 2]; avka01 addMagazineCargoGlobal ["20Rnd_762x51_Mag", 6]; avka01 addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 36]; avka01 addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer", 36];
-avka02 addWeaponCargoGlobal ["hlc_rifle_M4",3]; avka02 addWeaponCargoGlobal ["rhs_weap_m16a4_grip",3]; avka02 addWeaponCargoGlobal ["rhs_weap_m14ebrri",1]; avka02 addWeaponCargoGlobal ["arifle_MX_SW_Black_F",1]; avka02 addWeaponCargoGlobal ["rhs_weap_M320",1]; avka02 addItemCargoGlobal ["optic_Hamr", 8]; avka02 addItemCargoGlobal ["FHQ_optic_AC12136", 8]; avka02 addItemCargoGlobal ["FHQ_optic_LeupoldERT", 1]; avka02 addItemCargoGlobal ["HandGrenade_Stone", 6]; avka02 addItemCargoGlobal ["SmokeShellBlue", 4]; avka02 addMagazineCargoGlobal ["3Rnd_SmokeGreen_Grenade_shell", 3]; avka02 addMagazineCargoGlobal ["3Rnd_UGL_FlareWhite_F", 2]; avka02 addMagazineCargoGlobal ["20Rnd_762x51_Mag", 6]; avka02 addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 36]; avka02 addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer", 36];
-avka03 addWeaponCargoGlobal ["hlc_rifle_M4",3]; avka03 addWeaponCargoGlobal ["rhs_weap_m16a4_grip",3]; avka03 addWeaponCargoGlobal ["rhs_weap_m14ebrri",1]; avka03 addWeaponCargoGlobal ["arifle_MX_SW_Black_F",1]; avka03 addWeaponCargoGlobal ["rhs_weap_M320",1]; avka03 addItemCargoGlobal ["optic_Hamr", 8]; avka03 addItemCargoGlobal ["FHQ_optic_AC12136", 8]; avka03 addItemCargoGlobal ["FHQ_optic_LeupoldERT", 1]; avka03 addItemCargoGlobal ["HandGrenade_Stone", 6]; avka03 addItemCargoGlobal ["SmokeShellBlue", 4]; avka03 addMagazineCargoGlobal ["3Rnd_SmokeGreen_Grenade_shell", 3]; avka03 addMagazineCargoGlobal ["3Rnd_UGL_FlareWhite_F", 2]; avka03 addMagazineCargoGlobal ["20Rnd_762x51_Mag", 6]; avka03 addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 36]; avka03 addMagazineCargoGlobal ["100Rnd_65x39_caseless_mag_Tracer", 36];
+[] spawn
+{
+	_PolWpnList = [["RH_Hk416",3],["RH_Hk416",3],["RH_M16A3",3],["srifle_DMR_03_F",1],["arifle_MX_SW_Black_F",1],["rhs_weap_M320",1]];
+	{
+		Pol_Waffenkiste01 addWeaponCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste02 addWeaponCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste03 addWeaponCargoGlobal [_x select 0, _x select 1];	
+	}forEach _PolWpnList;
+	_PolMagList = [["3Rnd_SmokeGreen_Grenade_shell", 3],["3Rnd_UGL_FlareWhite_F", 2],["20Rnd_762x51_Mag", 6],["30Rnd_556x45_Stanag", 46],["100Rnd_65x39_caseless_mag_Tracer", 6]];
+	{
+		Pol_Waffenkiste01 addMagazineCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste02 addMagazineCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste03 addMagazineCargoGlobal [_x select 0, _x select 1];
+	}forEach _PolMagList;
+	_PolItmList = [["optic_Hamr", 8],["FHQ_optic_AC12136", 8],["optic_AMS", 1],["HandGrenade_Stone", 6],["SmokeShellBlue", 4]];
+	{
+		Pol_Waffenkiste01 addItemCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste02 addItemCargoGlobal [_x select 0, _x select 1];
+		Pol_Waffenkiste03 addItemCargoGlobal [_x select 0, _x select 1];
+	}forEach _PolItmList;
+};
+
+//Re-Build Knast_Spreng dingenskirchens
+[] spawn
+{
+	_Ganz = "Land_Cargo_House_V3_F" createVehicle [10394.704,9232.5898,-0.5];
+	waitUntil{!IsNull _Ganz};
+	_Ganz allowDamage false;
+	_Ganz setPosATL [10394.704,9232.5898,-0.5];
+	D41_Hausliste pushback [10394.704,9232.5898,-0.5];
+	_Ganz setDir 223.70599;
+	//LockUp
+	_Ganz animate [format["Door_%1_rot",1],0];
+};
+publicVariable "D41_HausListe";
 
 life_server_isReady = true;
 publicVariable "life_server_isReady";
+
+//tf_channel_password = compileFinal ("Gdouhgd9h97dg");
+//publicVariable "tf_channel_password";
+D41_AllChemBlocked = false;
+publicVariable "D41_AllChemBlocked";

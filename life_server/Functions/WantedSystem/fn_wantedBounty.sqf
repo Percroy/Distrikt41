@@ -15,12 +15,11 @@ _cop = [_this,2,Objnull,[Objnull]] call BIS_fnc_param;
 if(isNull _civ OR isNull _cop) exitWith {};
 
 
-_result = format["SELECT wantedID, wantedName, wantedCrimes, wantedBounty FROM wanted WHERE active='1' AND wantedID='%1'",_uid];
-waitUntil{!DB_Async_Active};
+_result = format["WantedBounty:%1",_uid];
+//waitUntil{!DB_Async_Active};
 _queryResult = [_result,2] call DB_fnc_asyncCall;
 
-if(count _queryResult != 0) then
-{
+if(count _queryResult != 0) then {
 	_amount = _queryResult select 3;
 	[[_amount,_amount],"life_fnc_bountyReceive",(owner _cop),false] spawn life_fnc_MP;
 	

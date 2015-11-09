@@ -16,5 +16,5 @@ _player = owner _player;
 
 
 _query = format["UPDATE players SET arrested='1', jail_time='%1' WHERE playerid='%2'", _time, _playeruid];
-waitUntil {!DB_Async_Active};
+//waitUntil{!DB_Async_Active};
 [_query,1] call DB_fnc_asyncCall;

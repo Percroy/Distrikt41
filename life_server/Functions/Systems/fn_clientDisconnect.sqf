@@ -12,7 +12,7 @@ _uid = _this select 2;
 _name = _this select 3;
 if(isNull _unit) exitWith {};
 
-_containers = nearestObjects[_unit,["WeaponHolderSimulated"],5];
+_containers = nearestObjects[_unit,["GroundWeaponHolder"],5];
 {deleteVehicle _x;} foreach _containers;
 deleteVehicle _unit;
 

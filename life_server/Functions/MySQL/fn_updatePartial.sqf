@@ -9,17 +9,18 @@ private["_uid","_side","_value","_mode","_query"];
 _uid = [_this,0,"",[""]] call BIS_fnc_param;
 _side = [_this,1,sideUnknown,[civilian]] call BIS_fnc_param;
 _mode = [_this,3,-1,[0]] call BIS_fnc_param;
+//diag_log format [":::::::::::::::::::::: UpdatePartial DIAG LOG _THIS: %1", _this]; //Temporär entfernt
 
 if(_uid == "" OR _side == sideUnknown) exitWith {}; //Bad.
 _query = "";
 
 switch(_mode) do
 {
-	case 0:
+	/*case 0:
 	{
 		_value = [_this,2,0,[0]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_numberSafe;
-		_query = format["UPDATE players SET cash='%1' WHERE playerid='%2'",_value,_uid];
+		_query = format["UpdatePartial+CASH:%1:%2",_value,_uid];
 		diag_log format ["PartUpdate - Cash - UID : %1 : %2", _uid, _query];
 	};
 	
@@ -27,9 +28,9 @@ switch(_mode) do
 	{
 		_value = [_this,2,0,[0]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_numberSafe;
-		_query = format["UPDATE players SET bankacc='%1' WHERE playerid='%2'",_value,_uid];
+		_query = format["UpdatePartial+BANK:%1:%2",_value,_uid];
 		diag_log format ["PartUpdate - BankAcc - UID : %1 : %2",  _uid, _query];
-	};
+	};*/
 	
 	case 2:
 	{
@@ -41,37 +42,45 @@ switch(_mode) do
 			_value set[_i,[(_value select _i) select 0,_bool]];
 		};
 		_value = [_value] call DB_fnc_mresArray;
+		_value2 = _this select 4;
 		switch(_side) do
 		{
-			case west: {_query = format["UPDATE players SET cop_licenses='%1' WHERE playerid='%2'",_value,_uid];};
-			case civilian: {_query = format["UPDATE players SET civ_licenses='%1' WHERE playerid='%2'",_value,_uid];};
-			case independent: {_query = format["UPDATE players SET med_licenses='%1' WHERE playerid='%2'",_value,_uid];};
+			case west: {_query = format["UpdatePartial+cop_licenses:%1:%2",_value,_uid];};
+			case civilian: {_query = format["UpdatePartial+civ_licenses:%1:%2:%3",_value,_value2,_uid];};
+			case independent: {_query = format["UpdatePartial+med_licenses:%1:%2",_value,_uid];};
 		};
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _value, _value2]; //DEV
 	};
 	
 	case 3:
 	{
 		_value = [_this,2,[],[[]]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_mresArray;
-		switch(_side) do {
-			case west: {_query = format["UPDATE players SET cop_gear='%1' WHERE playerid='%2'",_value,_uid];};
-			case civilian: {_query = format["UPDATE players SET civ_gear='%1' WHERE playerid='%2'",_value,_uid];};
-			case independent: {_query = format["UPDATE players SET med_gear='%1' WHERE playerid='%2'",_value,_uid];};
+		_value2 = _this select 4;
+		switch(_side) do
+		{
+			case west: {_query = format["UpdatePartial+cop_gear:%1:%2",_value,_uid];};
+			case civilian: {_query = format["UpdatePartial+civ_gear:%1:%2:%3",_value,_value2,_uid];};
+			case independent: {_query = format["UpdatePartial+med_gear:%1:%2",_value,_uid];};
 		};
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _value, _value2]; //DEV
 	};
 	
 	case 4:
 	{
 		_value = [_this,2,false,[true]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_bool;
-		_query = format["UPDATE players SET alive='%1' WHERE playerid='%2'",_value,_uid];
+		_query = format["UpdatePartial+alive:%1:%2",_value,_uid];
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3", _uid, _mode, _value]; //DEV
 	};
 	
 	case 5:
 	{
 		_value = [_this,2,false,[true]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_bool;
-		_query = format["UPDATE players SET arrested='%1' WHERE playerid='%2'",_value,_uid];
+		_value2 = _this select 4;
+		_query = format["UpdatePartial+arrested:%1:%2:%3",_value,_value2,_uid];
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _value, _value2]; //DEV
 	};
 	
 	case 6:
@@ -80,30 +89,45 @@ switch(_mode) do
 		_value2 = [_this,4,0,[0]] call BIS_fnc_param;
 		_value1 = [_value1] call DB_fnc_numberSafe;
 		_value2 = [_value2] call DB_fnc_numberSafe;
-		_query = format["UPDATE players SET cash='%1', bankacc='%2' WHERE playerid='%3'",_value1,_value2,_uid];
-		diag_log format ["PartUpdate - Cash/BankAcc - UID : %1 : %2",  _uid, _query];
+		_value3 = _this select 6;
+		if(_side != civilian)then
+		{
+			_query = format["UpdatePartial+cash+bank+NonCiv:%1:%2:%3",_value1,_value2,_uid];
+			diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4 | V3: %5", _uid, _mode, _value1, _value2]; //DEV
+		}
+		else
+		{
+			_query = format["UpdatePartial+cash+bank:%1:%2:%3:%4",_value1,_value2,_value3,_uid];
+			diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4 | V3: %5", _uid, _mode, _value1, _value2, _value3]; //DEV
+		};
 	};
 	
 	case 7:
 	{
 		_array = [_this,2,[],[[]]] call BIS_fnc_param;
 		[_uid,_side,_array,0] call TON_fnc_keyManagement;
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _array]; //DEV
 	};
+	
 	case 8:
 	{
 		_value = [_this,2,0,[0]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_numberSafe;
-		_query = format["UPDATE players SET died='%1' WHERE playerid='%2'",_value,_uid];
+		_value2 = _this select 4;
+		_query = format["UpdatePartial+died:%1:%2:%3",_value,_value2,_uid];
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _value, _value2]; //DEV
 	};
+	
 	case 9:
 	{
 		_value = [_this,2,0,[0]] call BIS_fnc_param;
 		_value = [_value] call DB_fnc_numberSafe;
-		_query = format["UPDATE players SET Karma='%1' WHERE playerid='%2'",_value,_uid];
-		diag_log format ["PartUpdate - Karma - UID : %1 : %2",  _uid, _value];
+		_value2 = _this select 4;
+		_query = format["UpdatePartial+Karma:%1:%2:%3",_value,_value2,_uid];
+		diag_log format ["::::::::: UPDATE PARTIAL: _uid: %1 | _mode: %2 | V1: %3 | V2: %4", _uid, _mode, _value, _value2]; //DEV
 	};
 };
 
 if(_query == "") exitWith {};
-waitUntil {!DB_Async_Active};
-[_query,1] call DB_fnc_asyncCall;
+
+"extDB2" callExtension format["%1:%2:%3",1,(call life_sql_id),_query];

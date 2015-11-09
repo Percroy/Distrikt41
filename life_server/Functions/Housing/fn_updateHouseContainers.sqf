@@ -6,12 +6,13 @@
 private["_house","_houseID","_containers","_query"];
 _house = [_this,0,ObjNull,[ObjNull]] call BIS_fnc_param;
 if(isNull _house) exitWith {systemChat "House null";};
-_houseID = _house getVariable["house_id",-1];
-if(_houseID == -1) exitWith {systemChat "HouseID invalid";};
+_houseID = [_house, "house_id"] call life_fnc_D41_GetHouseInfos;
+if(isNil "_houseID") exitWith {systemChat "HouseID invalid";};
 
-_containers = _house getVariable ["containers",[]];
+_containers = [_house, "containers"] call life_fnc_D41_GetHouseInfos;
+if(_containers isEqualTo "KeineDaten")exitWith{diag_log format ["::::::::: FEHLER: UpdateHouseContainers: KeineDaten _containers: _House: %1", _house];};
+diag_log format["Number of containers found: %1 || _house: %2 || _houseID: %3",count _containers, typeOf _house, _houseID];
 
-systemChat format["Number of containers found: %1",count _containers];
 _arr = [];
 {
 	_className = typeOf _x;
@@ -24,7 +25,6 @@ _arr = [];
 } foreach _containers;
 
 _arr = [_arr] call DB_fnc_mresArray;
-_query = format["UPDATE houses SET containers='%1' WHERE id='%2'",_arr,_houseID];
-waitUntil{!DB_Async_Active};
-[_query,1] call DB_fnc_asyncCall;
-systemChat "Query ran?";
+_query = format["UpdateHouseContainers:%1:%2",_arr,_houseID];
+
+"extDB2" callExtension format["%1:%2:%3",1,(call life_sql_id),_query];

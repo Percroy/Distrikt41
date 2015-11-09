@@ -22,7 +22,7 @@ _CreateBlitze =
 
 while{true}do
 {
-	waitUntil {(D41_Blitze == 1)};
+	waitUntil {sleep 1; (D41_Blitze == 1)};
 	[] spawn _CreateBlitze;
 	sleep 45;
 };

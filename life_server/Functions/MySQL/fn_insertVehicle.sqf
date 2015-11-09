@@ -16,7 +16,7 @@ _plate = [_this,5,-1,[0]] call BIS_fnc_param;
 //Stop bad data being passed.
 if(_uid == "" OR _side == "" OR _type == "" OR _className == "" OR _color == -1 OR _plate == -1) exitWith {};
 
-_query = format["INSERT INTO vehicles (side, classname, type, pid, alive, active, color, plate) VALUES ('%1', '%2', '%3', '%4', '1','1','%5', '%6')",_side,_className,_type,_uid,_color,_plate];
+_query = format["InsertVehicle:%1:%2:%3:%4:%5:%6",_side,_className,_type,_uid,_color,_plate];
 
-waitUntil {sleep (random 0.3); !DB_Async_Active};
+//waitUntil{sleep (random 0.3); !DB_Async_Active};
 [_query,1] call DB_fnc_asyncCall;

@@ -7,10 +7,10 @@
 */
 private["_funds"];
 D41_BankAddAmount = 10;
-D41_Safe_Loot = 1;
+D41_Safe_Loot = 30;
 while {true} do
 {
 	D41_Safe_Loot = D41_Safe_Loot + D41_BankAddAmount;
 	publicVariable "D41_Safe_Loot";
-	sleep (15 * 60);
+	sleep (20 * 60);
 };

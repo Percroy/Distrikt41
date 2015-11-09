@@ -15,7 +15,7 @@ _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _house) >> "numberOfDo
 for "_i" from 1 to _doors do {
 	_selectionPos = _house selectionPosition format["Door_%1_trigger",_i];
 	_worldSpace = _house modelToWorld _selectionPos;
-	if(player distance _worldSpace < 3.8) exitWith {_door = _i};
+	if(player distance _worldSpace < 5) exitWith {_door = _i};
 };
 
 _door;

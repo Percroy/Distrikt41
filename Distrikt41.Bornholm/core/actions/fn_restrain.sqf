@@ -57,8 +57,6 @@ if(isNil "D41_HC_Timer")then{D41_HC_Timer = true};
 
 if((player getVariable["surrender",FALSE])) then { player setVariable["surrender",FALSE,TRUE]; player switchMove ""; };
 
-//player say3D "Sounds\cuff.ogg";
-//playSound3D ["D41_S\Sounds\AlifeSounds\cuff.ogg", player, false, getPosASL player, 1, 1, 5];
 
 while {player getVariable "restrained"} do
 {
@@ -94,8 +92,6 @@ while {player getVariable "restrained"} do
 
 if(alive player) then
 {	
-	//player say3D "Sounds\cuff.ogg";
-	//playSound3D ["D41_S\Sounds\AlifeSounds\cuff.ogg", player, false, getPosASL player, 1, 1, 5];
 	player spawn life_fnc_initGang;
 	player switchMove "AmovPercMstpSlowWrflDnon_SaluteIn";
 	player setVariable ["Escorting",false,true];

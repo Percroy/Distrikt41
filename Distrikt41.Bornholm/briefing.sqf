@@ -152,7 +152,7 @@ player createDiarySubject ["controls","Steuerung"];
 				- Alle Sanitätsfahrzeuge<br/><br/>
 
 				Illegale Waffen<br/>
-				Jede Waffe und die dazugehörige Munition, die NICHT beim Waffenhändler oder Herotrader erhältlich ist wird als illegal eingestuft. Für eine genaue Auflistung schaut bei uns im Forum vorbei.<br/><br/>
+				Jede Waffe und die dazugehörige Munition, die NICHT beim Waffenhändler oder Herotrader bzw der Hero-Waffenproduktionerhältlich ist wird als illegal eingestuft.<br/><br/>
 
 				Illegale Waren und Gegenstände<br/>
 				- Heroin ( auch Schlafmohn )<br/>
@@ -550,6 +550,7 @@ player createDiarySubject ["controls","Steuerung"];
 		[
 			"Steuerung und Sondertasten",
 				"
+				^: (oben links neben der 1) TÜREN öffnen<br/>
 				Z oder ^: Spielermenu öffnen<br/>
 				U: Auf-/Abschließen von Autos und Haustüren<br/>
 				Left Shift + G: Niederschlagen (Nur Zivis)<br/>

@@ -409,8 +409,12 @@ class Life_Client_Core
 		class copLoadout {};
 		class ticketPaid {};
 		class wantedGrab {};
-		class cop_marker {};
-		class add_cop_marker {};
+        
+        // zone menu 
+        class cop_zoneMenu {};
+        class cop_zoneMenu_create {};
+        class cop_zoneMenu_remove {};
+        
 	};
 	
 	class Gangs

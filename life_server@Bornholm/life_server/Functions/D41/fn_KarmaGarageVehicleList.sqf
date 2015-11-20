@@ -10,7 +10,7 @@ D41_GarageList_KeinKarmaCheck = //Karma Neutrale Fahrzeuge
 		//Zugmaschinen
 		"D41_B_Truck_01_mover_F","D41_Truck_01_mover_R","D41_Truck_01_mover_B","D41_Civ_Kamaz_Zugmaschine",
 		//Admin
-		"RHS_C130J","O_Heli_Attack_02_F","D41_I_Heli_light_03_SWAT_MGs","D41_Mi8AMT_vdv","RHS_UH1Y_UNARMED_d","RHS_AH1Z_wd_GS"
+		"RHS_C130J","O_Heli_Attack_02_F","D41_I_Heli_light_03_SWAT_MGs","D41_Mi8AMT_vdv","RHS_UH1Y_UNARMED_d","RHS_AH1Z_wd_GS","RHS_Mi24V_vvs","RHS_Mi24Vt_vvs","rhs_tigr_ffv_3camo_vdv","rhs_gaz66_ammo_msv","D41_B_M998A2_sov_M2","D41_B_M1114_Armored"
 	];
 	
 	

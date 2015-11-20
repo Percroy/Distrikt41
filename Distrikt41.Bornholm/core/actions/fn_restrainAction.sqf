@@ -20,8 +20,6 @@ if(side player == civilian) then
 
 if(!isPlayer _unit) exitWith {};
 
-//Broadcast!
-//player say3D "Sounds\cuff.ogg"; //Unnötig da playsound3D
 
 life_maskiert = 0;
 if ((goggles player) in D41_goggles_Array) then {life_maskiert = 1};

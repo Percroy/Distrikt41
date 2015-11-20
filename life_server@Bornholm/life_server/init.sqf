@@ -141,7 +141,7 @@ waitUntil{D41_HouseInitDone};
 if(worldName == "Bornholm")then
 {
 	private["_dome","_rsb"];
-	_dome = nearestObject [[9744.48,5253.83,1],"Land_Offices_01_V1_F"];
+	_dome = nearestObject [[5799.5044,8080.9805,1],"Land_Offices_01_V1_F"];
 	D41_Hausliste pushback (getPosATL _dome);
 	for "_i" from 1 to 8 do {_dome animate [format["Door_%1_rot",_i],0];};
 	_dome allowDamage false;

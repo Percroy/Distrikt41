@@ -125,7 +125,7 @@ player enableFatigue (__GETC__(life_enableFatigue));
 [] spawn life_fnc_D41_ExportRopeCheck;
 [[getPlayerUID player,player getVariable["realname",name player]],"life_fnc_wantedProfUpdate",false,false] spawn life_fnc_MP;
 
-fed_bank_building = nearestObject [[9744.48,5253.83,1],"Land_Offices_01_V1_F"]; //Federal Bank Gebäude?
+fed_bank_building = nearestObject [[5799.5044,8080.9805,-0.293976],"Land_Offices_01_V1_F"]; //Federal Bank Gebäude?
 fed_bank_building allowdamage false;
 if(isServer)then{D41_Hausliste pushback (getPos fed_bank_building);};
 if(isServer)then{D41_Hausliste pushback (getPosATL fed_bank_building);};

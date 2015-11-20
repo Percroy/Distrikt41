@@ -60,7 +60,8 @@ switch (_shop) do
 	case "diamond": {_return = ["Diamantenhandel",["D41_Diamanten"]]};
 	case "Kerosin": {_return = ["Flughafen Tanklager",["D41_Kerosin"]]};
 	case "Stahl": {_return = ["Stahlhandel",["D41_Stahl"]]};
-	case "heroin": {_return = ["Drogen Dealer",["D41_Cannabis","D41_Kokain","D41_Heroin","D41_Meth"]]};
+	case "heroin": {_return = ["Drogen Dealer",["D41_Cannabis","D41_Kokain","D41_Heroin"]]};
+	case "meth": {_return = ["Meth Dealer",["D41_Cannabis","D41_Kokain","D41_Heroin","D41_Meth"]]};
 	case "gold": {_return = ["Goldhandel",["D41_GoldBarren"]]};
 	
 	//Grosshandel

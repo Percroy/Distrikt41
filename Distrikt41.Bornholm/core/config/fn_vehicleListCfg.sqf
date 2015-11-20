@@ -406,11 +406,12 @@ switch (_shop) do
 			_return pushback ["D41_Offroad_Security",3500];
 			_return pushback ["D41_rhsusf_m998_d_4dr",35000];
 			_return pushback ["D41_tigr_security",40000];
+			_return pushback ["D41_C_SUV_sport_Schwarz",35750]; //BMW X6M
 		};
 		if((__GETC__(life_coplevel) > 4) && license_cop_gangfirma) then
 		{
-			_return pushback ["D41_C_SUV_sport_Schwarz",35750]; //BMW X6M
-			_return pushback ["D41_typhoon_vdv_wert",255000];
+			
+			_return pushback ["D41_typhoon_vdv_wert",150000];
 		};
 	};
 	

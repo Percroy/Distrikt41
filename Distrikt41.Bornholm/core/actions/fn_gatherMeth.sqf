@@ -40,12 +40,6 @@ _Werkzeug = "";
 _CheckWerkzeug = (_Werkzeug in (assignedItems player));
 _GatherText = {titleText[format[localize "STR_D41_Produzieren",_hType],"PLAIN"];};
 _GatheredText = {titleText[format[localize "STR_D41_Produziert",_rndm, _hType],"PLAIN"];};
-_OBJ = _vehicle;
-_PS = "#particlesource" createVehicleLocal getpos _OBJ;
-_ps setParticleCircle [0, [0, 0, 0]];
-_ps setParticleRandom [60, [0.5, 0.5, 0], [0.2, 0.2, 0], 0, 0.25, [0.8, 1, 0.25, 0.1], 0, 0];
-//_ps setParticleParams [["\SmokeAnim.p3d", 8, 1, 6], "", "Billboard", 1, 60, [0, 0, 0], [0, 0, 4.5], 0, 10, 7.9, 0.5, [4, 12, 20], [[0.1, 0.1, 0.1, 0.8], [0.25, 0.25, 0.25, 0.5], [0.5, 0.5, 0.5, 0]], [0.125], 1, 0, "", "", _OBJ];
-_ps setDropInterval 0.1;
 _fnc_gather = 
 {
 	player removeMagazine "D41_Meth3";
@@ -111,7 +105,6 @@ _fnc_gather =
 			for "_i" from 1 to _rndm do
 			{
 				player addMagazine _type;
-				deleteVehicle _ps;
 			};
 			[_Karma,0] call life_fnc_D41_KSys;
 		};

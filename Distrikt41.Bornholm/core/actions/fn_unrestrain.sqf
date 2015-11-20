@@ -67,8 +67,6 @@ _unit setVariable["restrained",FALSE,TRUE];
 _unit setVariable["Escorting",FALSE,TRUE];
 _unit setVariable["transporting",FALSE,TRUE];
 detach _unit;
-//player say3D "Sounds\cuff.ogg";
-//playSound3D ["D41_S\Sounds\AlifeSounds\cuff.ogg", _unit, false, getPosASL _unit, 1, 1, 5];
 
 _life_maskiert = false;
 if ((goggles player) in D41_goggles_Array) then {_life_maskiert = true};

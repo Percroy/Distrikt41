@@ -25,8 +25,8 @@ StartProgress = true;
 //Haustypliste
 D41_HausArray = ["Land_i_Garage_V1_F","Land_Hospital_main_F","Land_Airport_center_F","Land_Airport_right_F","Land_Airport_left_F","Land_i_Garage_V2_F","Land_i_House_Big_02_V1_F","Land_i_House_Big_02_V2_F","Land_i_House_Big_02_V3_F","Land_i_House_Big_01_V1_F","Land_i_House_Big_01_V2_F","Land_i_House_Big_01_V3_F","Land_i_Stone_HouseSmall_V1_F","Land_i_Stone_HouseSmall_V2_F","Land_i_Stone_HouseSmall_V3_F","Land_i_Shed_Ind_F","Land_Slum_House02_F","Land_i_House_Small_01_V1_F","Land_i_House_Small_01_V2_F","Land_i_House_Small_01_V3_F","Land_i_House_Small_02_V1_F","Land_i_House_Small_02_V2_F","Land_i_House_Small_02_V3_F","Land_i_House_Small_03_V1_F"];
 
-//Cop Sperrzone-Array
-Cop_Marker = [];
+// Zone Menu
+D41_Cop_Zones = [];
 
 // Eventhandler Reset - Infos von: http://feedback.arma3.com/view.php?id=24841
 {
@@ -45,5 +45,5 @@ Cop_Marker = [];
 tf_radio_channel_name = "Distrikt41_Ingame";
 
 CopRoenne = nearestObject [[1277.33,7709.33,-0.0113144],"Land_Offices_01_V1_F"];
-fed_bank_building = nearestObject [[9742.87,5255.7,-0.293976],"Land_Offices_01_V1_F"];
+fed_bank_building = nearestObject [[5799.5044,8080.9805,-0.293976],"Land_Offices_01_V1_F"];
 fed_bank_building allowdamage false;

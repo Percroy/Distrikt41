@@ -155,6 +155,11 @@
 			<English>Skillsytem</English>
 			<German>Skillsytem</German>
 		</Key>
+        <Key ID="STR_Cop_ZoneMenu">
+			<Original>Zone Menu</Original>
+			<English>Zone Menu</English>
+			<German>Sperrzonen</German>
+		</Key>
 		<Key ID="STR_PM_Up">
 			<Original>Up</Original>
 			<English>Up</English>
@@ -2438,11 +2443,6 @@
 			<Italian>Multando %1</Italian>
 			<Portuguese>Multando %1</Portuguese>
 		</Key>
-		<Key ID="STR_Cop_Exclusion_Zone">
-			<Original>Exclusion Zone</Original>
-			<English>Exclusion Zone</English>
-			<German>Sperrzonen</German>
-		</Key>		
 		<Key ID="STR_Cop_TicketNil">
 			<Original>Person to ticket is nil</Original>
 			<English>Person to ticket is nil</English>
@@ -6001,10 +6001,20 @@
 			<English>Step out of your car first.</English>
 			<German>Du musst aus deinem Fahrzeug aussteigen!</German>
 		</Key>
-		<Key ID="STR_D41_UeberfallIstCop">
-			<Original>What? You are a cop! Get the F outta here, before i call your Chief!</Original>
-			<English>What? You are a cop! Get the F outta here, before i call your Chief!</English>
-			<German>Sie sind ein Polizeibeamter! Verziehen Sie sich bevor ich mich bei ihren Vorgesetzten beschweren werde!</German>
+		<Key ID="STR_D41_UeberfallBereitsImGange">
+			<Original>A robbery on this guy is currently active!</Original>
+			<English>A robbery on this guy is currently active!</English>
+			<German>Dieser Herr wird bereits von jemanden ausgenommen!</German>
+		</Key>
+        <Key ID="STR_D41_UeberfallCooldown">
+			<Original>Srsly? He don't have money in his cash desk..</Original>
+			<English>Srsly? He don't have money in his cash desk..</English>
+			<German>Verdammt, er hat kein Geld in der Kasse!</German>
+		</Key>
+        <Key ID="STR_D41_UeberfallIstCop">
+			<Original>What? You are a civil servant! Get the F outta here, before i call your supervisor!</Original>
+			<English>What? You are a civil servant! Get the F outta here, before i call your supervisor!</English>
+			<German>Sie sind ein Staatsbediensteter! Verziehen Sie sich bevor ich mich bei ihren Vorgesetzten beschweren werde!</German>
 		</Key>
 		<Key ID="STR_D41_UeberfallKeineWaffe">
 			<Original>You are trying to rob me without a gun? Bwahahaha, there is the door! Use it maggot!</Original>
@@ -6873,44 +6883,44 @@
 			<German>Für das töten eines Zivilisten hast Du %1 Karma verloren! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_2">
-			<Original>For the killing of a Mafia did you get 100 Karma! Karma: %2</Original>
-			<English>For the killing of a Mafia did you get 100 Karma! Karma: %2</English>
-			<German>Für das töten eines Kriminellen hast Du 100 Karma bekommen! Karma: %2</German>
+			<Original>For the killing of a Mafia did you get 10 Karma! Karma: %2</Original>
+			<English>For the killing of a Mafia did you get 10 Karma! Karma: %2</English>
+			<German>Für das töten eines Kriminellen hast Du 10 Karma bekommen! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_2_Max">
-			<Original>For the killing of a Mafia did you get 100 Karma! Maximum Positive Karma reached! Karma: %2</Original>
-			<English>For the killing of a Mafia did you get 100 Karma! Maximum Positive Karma reached! Karma: %2</English>
-			<German>Für das töten eines Kriminellen hast Du 100 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
+			<Original>For the killing of a Mafia did you get 10 Karma! Maximum Positive Karma reached! Karma: %2</Original>
+			<English>For the killing of a Mafia did you get 10 Karma! Maximum Positive Karma reached! Karma: %2</English>
+			<German>Für das töten eines Kriminellen hast Du 10 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_3_Max">
-			<Original>For the killing of a rebel did you get 200 Karma! Maximum Positive Karma reached! Karma: %2</Original>
-			<English>For the killing of a rebel did you get 200 Karma! Maximum Positive Karma reached! Karma: %2</English>
-			<German>Für das töten eines Rebellen hast Du 200 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
+			<Original>For the killing of a rebel did you get 20 Karma! Maximum Positive Karma reached! Karma: %2</Original>
+			<English>For the killing of a rebel did you get 20 Karma! Maximum Positive Karma reached! Karma: %2</English>
+			<German>Für das töten eines Rebellen hast Du 20 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_3">
-			<Original>For the killing of a rebel did you get 200 Karma! Karma: %2</Original>
-			<English>For the killing of a rebel did you get 200 Karma! Karma: %2</English>
-			<German>Für das töten eines Rebellen hast Du 200 Karma bekommen! Karma: %2</German>
+			<Original>For the killing of a rebel did you get 20 Karma! Karma: %2</Original>
+			<English>For the killing of a rebel did you get 20 Karma! Karma: %2</English>
+			<German>Für das töten eines Rebellen hast Du 20 Karma bekommen! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_4">
-			<Original>For the killing of a known rebel did you get 400 Karma! Karma: %2</Original>
-			<English>For the killing of a known rebel did you get 400 Karma! Karma: %2</English>
-			<German>Für das töten eines bekannten Rebellen hast Du 400 Karma bekommen! Karma: %2</German>
+			<Original>For the killing of a known rebel did you get 40 Karma! Karma: %2</Original>
+			<English>For the killing of a known rebel did you get 40 Karma! Karma: %2</English>
+			<German>Für das töten eines bekannten Rebellen hast Du 40 Karma bekommen! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_4_Max">
-			<Original>For the killing of a known rebel did you get 400 Karma! Maximum Positive Karma reached! Karma: %2</Original>
-			<English>For the killing of a known rebel did you get 400 Karma! Maximum Positive Karma reached! Karma: %2</English>
-			<German>Für das töten eines bekannten Rebellen hast Du 400 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
+			<Original>For the killing of a known rebel did you get 40 Karma! Maximum Positive Karma reached! Karma: %2</Original>
+			<English>For the killing of a known rebel did you get 40 Karma! Maximum Positive Karma reached! Karma: %2</English>
+			<German>Für das töten eines bekannten Rebellen hast Du 40 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_5">
-			<Original>For the killing of a senior rebel did you get 800 Karma! Karma: %2</Original>
-			<English>For the killing of a senior rebel did you get 800 Karma! Karma: %2</English>
-			<German>Für das töten eines hochrangigen Rebellen hast Du 800 Karma bekommen! Karma: %2</German>
+			<Original>For the killing of a senior rebel did you get 80 Karma! Karma: %2</Original>
+			<English>For the killing of a senior rebel did you get 80 Karma! Karma: %2</English>
+			<German>Für das töten eines hochrangigen Rebellen hast Du 80 Karma bekommen! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Karma_Kill_5_Max">
-			<Original>For the killing of a senior rebel did you get 800 Karma! Maximum Positive Karma reached! Karma: %2</Original>
-			<English>For the killing of a senior rebel did you get 800 Karma! Maximum Positive Karma reached! Karma: %2</English>
-			<German>Für das töten eines hochrangigen Rebellen hast Du 800 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
+			<Original>For the killing of a senior rebel did you get 80 Karma! Maximum Positive Karma reached! Karma: %2</Original>
+			<English>For the killing of a senior rebel did you get 80 Karma! Maximum Positive Karma reached! Karma: %2</English>
+			<German>Für das töten eines hochrangigen Rebellen hast Du 80 Karma bekommen! Maximales Positives Karma erreicht! Karma: %2</German>
 		</Key>
 		<Key ID="STR_D41_Fix_Jail_Fence">
 			<Original>Do you really want to fix the fence of the jail?</Original>

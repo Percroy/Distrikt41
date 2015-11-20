@@ -31,5 +31,7 @@
 #include "lkw_status.hpp"
 #include "medicSys.hpp"
 #include "Gangbase_Miete.hpp"
-#include "Cop_Sperrzone.hpp"
-#include "Cop_Sperrzone_Name.hpp"
+
+// Cop Zone Menu
+#include <cop_zoneMenu.hpp>
+#include <cop_zoneMenu_name.hpp>

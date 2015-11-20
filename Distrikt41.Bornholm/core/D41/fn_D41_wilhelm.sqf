@@ -7,8 +7,6 @@
 private["_Target"];
 
 if(!alive player) exitWith {};
-//_Target say3D "Sounds\wilhelm.ogg";
-//playSound3D ["D41_S\Sounds\AlifeSounds\wilhelm.ogg", player, false, getPosASL player, 2, 1, 50];
 hint localize "STR_D41_FingerAb";
 
 _Mod = 0.1;

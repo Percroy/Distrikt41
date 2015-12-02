@@ -150,7 +150,15 @@ Eine Verknüpfung der "arma3server.exe" auf dem Desktop erstellen.
 In den Eigenschaften der Verknüpfung bei "Target/Ziel" den Eintrag wie folgt ändern (dabei auf die Nutzung von \ anstatt / achten!)
 "E:\SteamFiles\Arma3Server\arma3server.exe" /high -autoInit -malloc=tbbmalloc -port=2302 -enableHT -maxmem=3071 -mod=@life_server;@Distrikt41; -config=server_config.cfg -cfg=basic.cfg -bePath=E:\SteamFiles\Arma3Server\BattlEye
  
-.
+
+------------------
+In folgenden Dateien/Zeilen den eigenen Teamspeak-Namen und Channel für TaskForce Radio eintragen:
+
+init_survival.sqf ab Zeile: 116-139
+init.sqf ab Zeile: Zeile 44-45
+
+Nur dann erkennt der Server das eigene Teamspeak und zieht die Spieler die connecten automatisch in den Ingame-Channel (ohne Blackscreen)
+------------------
  
 Fehlermeldung beim Starten:
  
